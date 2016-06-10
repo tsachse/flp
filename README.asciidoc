@@ -1,3 +1,25 @@
-= Projekt FLP
+= FLP - Facility Layout Problems
 
-....
+
+== Layout Construction
+
+https://books.google.de/books?id=GTwPZ1RNS-UC&pg=PA172&lpg=PA172&dq=layout+construction+algorithm&source=bl&ots=qxKPpOs9H8&sig=2CGJW1XsI50avnGz6_NAWAboFew&hl=de&sa=X&ved=0ahUKEwiisOj2ko7NAhXQSxoKHbnhAEAQ6AEIbTAN#v=onepage&q=layout%20construction%20algorithm&f=false +
+https://github.com/jakesgordon/bin-packing +
+https://github.com/misshie/interval-tree +
+https://github.com/kumar91gopi/Algorithms-and-Data-Structures-in-Ruby +
+
+
+== Variable Neigborhood Search (VNS)
+
+http://www.cleveralgorithms.com/nature-inspired/stochastic/variable_neighborhood_search.html +
+
+== Iterated Local Search
+
+http://www.cleveralgorithms.com/nature-inspired/stochastic/iterated_local_search.html +
+
+== Find if two rectangles overlap
+
+http://www.geeksforgeeks.org/find-two-rectangles-overlap/ +
+http://math.stackexchange.com/questions/99565/simplest-way-to-calculate-the-intersect-area-of-two-rectangles/99576 +
+http://stackoverflow.com/questions/2752725/finding-whether-a-point-lies-inside-a-rectangle-or-not +
+
