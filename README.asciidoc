@@ -23,3 +23,16 @@ http://www.geeksforgeeks.org/find-two-rectangles-overlap/ +
 http://math.stackexchange.com/questions/99565/simplest-way-to-calculate-the-intersect-area-of-two-rectangles/99576 +
 http://stackoverflow.com/questions/2752725/finding-whether-a-point-lies-inside-a-rectangle-or-not +
 
+== Dockerfile
+
+-----
+cd ~/Docker/flp
+docker build -t flp .
+docker run -it -v $PWD:/Code --rm flp bash --login
+#
+cd /Code
+bundle install
+rspec
+...
+exit
+-----
