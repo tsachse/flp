@@ -18,5 +18,13 @@ class FacilitySet
     end
   end
 
+  def size
+    @facilities.size
+  end
+
+  def grep(e)
+    @facilities.grep(e)
+  end
+
 end
 
