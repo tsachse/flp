@@ -18,12 +18,18 @@ class FacilitySet
     end
   end
 
-  def size
-    @facilities.size
+  def can_cut?(id)
+    return false if @facilities.size < 2
+    return (@facilities.find { |f| f.id == id }) != nil
   end
 
-  def grep(e)
-    @facilities.grep(e)
+  def cut_facilities(id)
+    first_set = true
+    two_sets = @facilities.partition do |f|
+      s = first_set
+      first_set = false if f.id == id
+      s
+    end
   end
 
 end
