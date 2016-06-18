@@ -14,6 +14,7 @@ describe FacilitySet do
     expect(fs.can_cut?(:f1)).to eq(true)
     expect(fs.can_cut?(:f3)).to eq(false)
     expect(fs.cut_facilities(:f1)).to eq([[f1],[f2]])
+    expect(fs.facility_ids).to eq([:f1,:f2])
   end
 
 end

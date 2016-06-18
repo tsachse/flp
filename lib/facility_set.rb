@@ -32,5 +32,9 @@ class FacilitySet
     end
   end
 
+  def facility_ids
+    @facilities.map { |f| f.id }
+  end
+
 end
 

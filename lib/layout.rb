@@ -25,26 +25,24 @@ class Layout
       end
       @facility_set = fs
       ok = next_split_position != nil
-      p @facility_set.size if ok
+      # p @facility_set.size if ok
     end
   end
 
   def next_split_position
-
     sp = @silicing_order.shift
     return nil if sp == nil
-
     @facilities[sp]
-    
   end
 
   def split_position
-
     sp = @silicing_order.first
     return nil if sp == nil
-
     @facilities[sp].id
-    
+  end
+
+  def facility_set_ids
+    @facility_set.map { |f| f.facility_ids }
   end
 
 
