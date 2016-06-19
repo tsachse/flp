@@ -9,8 +9,10 @@ class FacilitySet
   attr_accessor :x2
   attr_accessor :y2
 
-  def initialize(facilities)
+  def initialize(facilities, x1 = 0, y1 = 0)
     @facilities = facilities
+    @x1 = x1
+    @y1 = y1
     @width = @height = 0
     @facilities.each do |f|
       @width = @width + f. width
