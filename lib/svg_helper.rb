@@ -3,11 +3,18 @@ require 'layout'
 
 class SVGHelper
   def self.layout_to_svg(layout)
+    colors = ['red','green','blue','yellow','brown','pink','cyan','gray']
+    i = 0
     tmp = FacilitySet.new(layout.facilities) 
     img = Rasem::SVGImage.new(tmp.width,tmp.height) do
       group :stroke=>"black" do
 	layout.facility_set.each do |fs|
-	  rectangle fs.x1, fs.y1, fs.x2 - fs.x1, fs.y2 - fs.y1, :stroke_width=>2, :fill=>"white"
+	  rectangle fs.x1, 
+	    fs.y1, 
+	    fs.x2 - fs.x1, 
+	    fs.y2 - fs.y1, 
+	    :stroke_width=>2, :fill=>colors[i%colors.size]
+	  i = i + 1
 	end
       end
     end
