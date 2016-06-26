@@ -10,6 +10,7 @@ describe Layout do
     f5 = Facility.new(:f5, 10, 50)
     f6 = Facility.new(:f6, 30, 10)
     @facilities = [f2,f6,f3,f4,f5,f0,f1]
+    @output_path_pattern = File.dirname(__FILE__) + '/output/layout_'
   end
 
   it "new instance" do
@@ -42,6 +43,7 @@ describe Layout do
     expect(fs2.y1).to eq(0)
     expect(fs2.x2).to eq(20)
     expect(fs2.y2).to eq(40)
+    img = SVGHelper.layout_to_svg_file(l,@output_path_pattern + 'hc.svg')
   end
 
   it "a vertical cut" do
