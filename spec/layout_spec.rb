@@ -107,4 +107,12 @@ describe Layout do
     img = SVGHelper.layout_to_svg_file(l,@output_path_pattern + 'five_cuts.svg')
   end
 
+  it "five cuts 2" do
+    silicing_order = [4,3,2,1,0]
+    orientation    = [0,0,1,1,0,0]
+    l = Layout.new(@facilities,silicing_order,orientation)
+
+    expect(l.class).to eq(Layout)
+    img = SVGHelper.layout_to_svg_file(l,@output_path_pattern + 'five_cuts2.svg')
+  end
 end

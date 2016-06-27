@@ -13,7 +13,7 @@ class SVGHelper
 	    fs.y1, 
 	    fs.x2 - fs.x1, 
 	    fs.y2 - fs.y1, 
-	    :stroke_width=>2, :fill=>colors[i%colors.size]
+	    :stroke_width=>1, :fill=>colors[i%colors.size]
 	  i = i + 1
 	end
       end
