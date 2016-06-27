@@ -38,5 +38,9 @@ class FacilitySet
     @facilities.map { |f| f.id }
   end
 
+  def label
+    facility_ids.join('-')
+  end
+
 end
 

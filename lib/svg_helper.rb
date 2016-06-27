@@ -11,9 +11,12 @@ class SVGHelper
 	layout.facility_set.each do |fs|
 	  rectangle fs.x1, 
 	    fs.y1, 
-	    fs.x2 - fs.x1, 
-	    fs.y2 - fs.y1, 
+	    fs.width, 
+	    fs.height, 
 	    :stroke_width=>1, :fill=>colors[i%colors.size]
+	  tx = fs.x1 + fs.width / 2
+	  ty = fs.y1 + fs.height / 2
+	  text tx, ty, fs.label
 	  i = i + 1
 	end
       end
