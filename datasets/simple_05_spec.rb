@@ -21,9 +21,9 @@ describe Layout do
   end
 
   it "Simple 05 Variante 2" do
-    facilities = [@f0,@f1,@f2,@f3,@f4i]
-    silicing_order = [2,3,1,0]
-    orientation =    [0,1,0,1]
+    facilities = [@f2,@f0,@f1,@f4,@f3]
+    silicing_order = [2,0,1,3]
+    orientation =    [0,0,1,1]
     l = Layout.new(facilities,silicing_order,orientation)
 
     expect(l.class).to eq(Layout)
