@@ -30,4 +30,34 @@ describe Layout do
     img = SVGHelper.layout_to_svg_file(l,@output_path_pattern + '2.svg')
   end
 
+  it "Simple 05 Variante 2 - 1 " do
+    facilities = [@f2,@f0,@f1,@f4,@f3]
+    silicing_order = [2]
+    orientation =    [0,0,1,1]
+    l = Layout.new(facilities,silicing_order,orientation)
+
+    expect(l.class).to eq(Layout)
+    img = SVGHelper.layout_to_svg_file(l,@output_path_pattern + '2_1.svg')
+  end
+
+  it "Simple 05 Variante 2 - 2" do
+    facilities = [@f2,@f0,@f1,@f4,@f3]
+    silicing_order = [2,0]
+    orientation =    [0,0,1,1]
+    l = Layout.new(facilities,silicing_order,orientation)
+
+    expect(l.class).to eq(Layout)
+    img = SVGHelper.layout_to_svg_file(l,@output_path_pattern + '2_2.svg')
+  end
+
+  it "Simple 05 Variante 2 - 3" do
+    facilities = [@f2,@f0,@f1,@f4,@f3]
+    silicing_order = [2,0,1]
+    orientation =    [0,0,1,1]
+    l = Layout.new(facilities,silicing_order,orientation)
+
+    expect(l.class).to eq(Layout)
+    img = SVGHelper.layout_to_svg_file(l,@output_path_pattern + '2_3.svg')
+  end
+
 end
