@@ -70,7 +70,20 @@ class Layout
     @facility_set.map { |f| f.facility_ids }
   end
 
-
+  def arranged_facilities
+    af = []
+    @facility_set.each do |fs|
+      if fs.facilities.size == 1
+	f = fs.facilities.first.clone
+	f.x1 = fs.x1
+	f.x2 = fs.x2
+	f.y1 = fs.y1
+	f.y2 = fs.y2
+	af << f
+      end
+    end
+    af
+  end
 end
 
 

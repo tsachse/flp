@@ -20,6 +20,13 @@ describe Layout do
 
     expect(l.class).to eq(Layout)
     expect(l.facility_set_ids).to eq([[:f2], [:f6], [:f3], [:f4], [:f5], [:f0], [:f1]])
+    expect(l.arranged_facilities[0].id).to eq(:f2)
+    expect(l.arranged_facilities[1].id).to eq(:f6)
+    expect(l.arranged_facilities[2].id).to eq(:f3)
+    expect(l.arranged_facilities[3].id).to eq(:f4)
+    expect(l.arranged_facilities[4].id).to eq(:f5)
+    expect(l.arranged_facilities[5].id).to eq(:f0)
+    expect(l.arranged_facilities[6].id).to eq(:f1)
     img = SVGHelper.layout_to_svg_file(l,@output_path_pattern + 'new_instance.svg')
   end
 
@@ -44,6 +51,7 @@ describe Layout do
     expect(fs2.y1).to eq(0)
     expect(fs2.x2).to eq(200)
     expect(fs2.y2).to eq(400)
+    expect(l.arranged_facilities).to eq([])
     img = SVGHelper.layout_to_svg_file(l,@output_path_pattern + 'horizontal_cut.svg')
   end
 
