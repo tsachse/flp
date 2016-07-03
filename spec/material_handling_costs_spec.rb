@@ -10,7 +10,7 @@ describe Layout do
     f5 = Facility.new(:f5, 100, 500)
     f6 = Facility.new(:f6, 300, 100)
     @facilities = [f2,f6,f3,f4,f5,f0,f1]
-    @output_path_pattern = File.dirname(__FILE__) + '/output/layout_'
+    @output_path_pattern = File.dirname(__FILE__) + '/output/mhc_'
   end
 
   it "new instance" do
@@ -22,7 +22,8 @@ describe Layout do
     expect(l.facility_set_ids).to eq([[:f2], [:f6], [:f3], [:f4], [:f5], [:f0], [:f1]])
     mhc = MaterialHandlingCosts.new(l)
     expect(mhc.class).to eq(MaterialHandlingCosts)
-    mhc.neighbours
+    edges =  mhc.material_flow_graph
+    DotHelper.edges_to_dot_file(edges,@output_path_pattern + 'new_instance.dot')
 
   end
 
