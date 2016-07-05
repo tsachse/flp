@@ -22,8 +22,12 @@ describe Layout do
     expect(l.facility_set_ids).to eq([[:f2], [:f6], [:f3], [:f4], [:f5], [:f0], [:f1]])
     mhc = MaterialHandlingCosts.new(l)
     expect(mhc.class).to eq(MaterialHandlingCosts)
-    edges =  mhc.material_flow_graph
-    DotHelper.edges_to_dot_file(edges,@output_path_pattern + 'new_instance.dot')
+    edges =  mhc.material_flow_edges
+    d = mhc.material_flow_distance
+    flow =  mhc.material_flow_path
+    p d
+    p mhc.material_flow_path
+    DotHelper.edges_to_dot_file(edges, flow, @output_path_pattern + 'new_instance.dot')
 
   end
 
