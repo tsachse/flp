@@ -1,0 +1,47 @@
+== Derzeitiger Versuchsaufbau
+
+== Facilities
+
+=== Parameter
+
+- Weite
+- Höhe
+- Übergabepunkt
+
+== Layoutermittlung (Slicing Tree)
+
+=== Parameter
+
+- Facility Order (Liste von Facilities)
+- Slicing Order
+- Orientierung
+
+== Ergebnis
+
+- angeordnete Facilities (Rechtecke)
+
+== Ermittlung Materialflussdistanz
+
+== Parameter
+
+- Layout
+- Materialflussreifenfolge
+
+== Verfahren
+
+* Graphen für Materialfluss ermitteln
+** Verbindungen um die jeweilige Facilty ermitteln
+** Verbindungen zwischen den Facilties auf Basis Facilty Order ermitteln
+* Kürzes Weg auf Basis Facilty Order ermitteln; besser ist auf Basis Materialflussreihenfolge
+
+== Optimierung mit Variable Neigborhood Search (VNS)
+
+* Initiales Layout berechnen
+* Initial Materialflusskosten srmitteln
+* Versuch über zyklisches Erzeugen von Layout bessere Materialflusskosten ermitteln
+** in äußerer Schleife Merkmal auswählen und an den Layoutprametern ändern
+** Layout und Materialflusskosten ermitteln; Änderungen bewerten
+** im Local Search soll versucht werden das sugwählte Merkmal zu verbessern
+
+
+
