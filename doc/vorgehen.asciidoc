@@ -35,7 +35,7 @@
 * Graphen für Materialfluss ermitteln
 ** Verbindungen um die jeweilige Facilty ermitteln
 ** Verbindungen zwischen den Facilties auf Basis Facilty Order ermitteln
-* Kürzes Weg auf Basis Facilty Order ermitteln; besser ist auf Basis Materialflussreihenfolge
+* Kürzesten Weg auf Basis Facilty Order ermitteln (Dijkstra); besser ist auf Basis Materialflussreihenfolge
 
 === Ergebnis
 
@@ -50,7 +50,7 @@
 * Versuch über zyklisches Erzeugen von Layout bessere Materialflusskosten ermitteln
 ** in äußerer Schleife Merkmal auswählen und an den Layoutprametern ändern
 ** Layout und Materialflusskosten ermitteln; Änderungen bewerten
-** im Local Search soll versucht werden das sugwählte Merkmal zu verbessern
+** im Local Search soll versucht werden, das ausgewählte Merkmal zu verbessern
 
 === Ergebnis
 
