@@ -1,4 +1,7 @@
-== Derzeitiger Versuchsaufbau
+:numbered:
+:toc:
+
+= Derzeitiger Versuchsaufbau
 
 == Facilities
 
