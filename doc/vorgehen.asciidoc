@@ -34,7 +34,13 @@
 ** Verbindungen zwischen den Facilties auf Basis Facilty Order ermitteln
 * Kürzes Weg auf Basis Facilty Order ermitteln; besser ist auf Basis Materialflussreihenfolge
 
+== Ergebnis
+
+* Materialflussdistanz
+
 == Optimierung mit Variable Neigborhood Search (VNS)
+
+=== Verfahren
 
 * Initiales Layout berechnen
 * Initial Materialflusskosten srmitteln
@@ -42,6 +48,10 @@
 ** in äußerer Schleife Merkmal auswählen und an den Layoutprametern ändern
 ** Layout und Materialflusskosten ermitteln; Änderungen bewerten
 ** im Local Search soll versucht werden das sugwählte Merkmal zu verbessern
+
+=== Ergebnis
+
+- vermeintliches Optimum der Materialflussdistanz
 
 
 
