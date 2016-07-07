@@ -25,19 +25,19 @@
 
 == Ermittlung Materialflussdistanz
 
-== Parameter
+=== Parameter
 
 - Layout
 - Materialflussreifenfolge
 
-== Verfahren
+=== Verfahren
 
 * Graphen für Materialfluss ermitteln
 ** Verbindungen um die jeweilige Facilty ermitteln
 ** Verbindungen zwischen den Facilties auf Basis Facilty Order ermitteln
 * Kürzes Weg auf Basis Facilty Order ermitteln; besser ist auf Basis Materialflussreihenfolge
 
-== Ergebnis
+=== Ergebnis
 
 * Materialflussdistanz
 
