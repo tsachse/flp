@@ -1,6 +1,7 @@
 :numbered:
 :toc:
 
+
 = Derzeitiger Versuchsaufbau
 
 == Facilities
@@ -56,5 +57,31 @@
 
 - vermeintliches Optimum der Materialflussdistanz
 
+
+== ToDo
+
+Layout::
+* Factory zum Erzeugen einen initalen Layouts entwerfen
+** Paramter: Liste von Facilities --> shuffle erzeugt die Facility Order
+** slicing_order mit Range und shuffle erzeugen
+* Factories für Layout; gebenes Layout und eines zu modifizierendes Gen (shuffle und anzahl Vertauschungen)
+** Facility Order
+** Slicing Order
+** Slice Oriention
+* Factory für Layout; gegenbens Layout und ein zufälliges Gen wird modifiert. (Rückgabe Layout und modifiertes Gen-->attr)
+
+-----
+a = [1,2,3,4,5,6,7,0]
+1..(a.size-1)).to_a.shuffle
+-----
+
+
+MaterialHandlingCost::
+* bekommt im Konstruktor neben den Layout noch die Materialflussreihenfolgen übergeben
+* die Nachbarschaftsbeziehungen zwischen den Graphen sind bidirektional
+* ggf. Nachbarschftsbezihungen auf Grund der Materialflussreigenfolge ermitteln
+
+VNS::
+* Algorithmus implementieren
 
 
