@@ -132,4 +132,10 @@ describe Layout do
     expect(l.class).to eq(Layout)
     img = SVGHelper.layout_to_svg_file(l,@output_path_pattern + 'gap.svg')
   end
+
+  it "initial layout" do
+    l = Layout.initial_layout(@facilities)
+    expect(l.class).to eq(Layout)
+    img = SVGHelper.layout_to_svg_file(l,@output_path_pattern + 'initial_layout.svg')
+  end
 end

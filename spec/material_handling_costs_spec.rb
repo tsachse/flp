@@ -31,4 +31,12 @@ describe Layout do
 
   end
 
+  it "initial layout" do
+    l = Layout.initial_layout(@facilities)
+    expect(l.class).to eq(Layout)
+    mhc = MaterialHandlingCosts.new(l)
+    d = mhc.material_flow_distance
+    p d
+  end
+
 end
