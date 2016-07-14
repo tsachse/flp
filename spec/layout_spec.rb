@@ -138,4 +138,28 @@ describe Layout do
     expect(l.class).to eq(Layout)
     img = SVGHelper.layout_to_svg_file(l,@output_path_pattern + 'initial_layout.svg')
   end
+
+  it "stochastic swap" do
+    l = Layout.initial_layout(@facilities)
+    expect(l.class).to eq(Layout)
+    v1 = [1,2,3,4,5]
+    v2 = l.stochastic_swap(v1)
+    expect(v1.size).to eq(v2.size)
+    expect(v1).not_to contain_exactly(v2)
+  end
+
+  it "stochastic orientaion swap" do
+    l = Layout.initial_layout(@facilities)
+    expect(l.class).to eq(Layout)
+    v1 = [1,1,1,1,1]
+    v2 = l.stochastic_orientation_swap(v1)
+    expect(v1.size).to eq(v2.size)
+    expect(v2).not_to contain_exactly(v1)
+    expect(v2).to  include(0)
+    v1 = [0,0,0,0,0]
+    v2 = l.stochastic_orientation_swap(v1)
+    expect(v1.size).to eq(v2.size)
+    expect(v2).not_to contain_exactly(v1)
+    expect(v2).to  include(0)
+  end
 end

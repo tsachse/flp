@@ -85,10 +85,53 @@ class Layout
     af
   end
 
+  def stochastic_swap(vector)
+    v = vector.clone
+    return v if v.size < 2
+    i = rand(v.size)
+    c1 = v[i]
+    v.delete_at(i)
+    i = rand(v.size)
+    c2 = v[i]
+    v.delete_at(i)
+    i = rand(v.size) 
+    v.insert(i, c1)
+    i = rand(v.size)
+    v.insert(i, c2)
+  end
+
+  def stochastic_orientation_swap(vector)
+    v = vector.clone
+    i = rand(v.size)
+    if v[i] == 0
+      v[i] = 1
+    elsif v[i] == 1
+      v[i] = 0
+    end
+    v
+  end
+
   def self.initial_layout(facilties)
     silicing_order = (0..(facilties.size-1)).to_a.shuffle
     orientation = silicing_order.map { |v| v % 2 }
     Layout.new(facilties, silicing_order, orientation)
+  end
+
+  # TODO zu Ende impl && Test
+  def self.modifed_layout(layout, which_params)
+    facilities = layout.facilities
+    silicing_order = layout.silicing_order
+    orientation = layout.orientation
+    which_params.keys.each do |k|
+      case k
+      when :facilitiy_order
+	facilities = stochastic_swap(layout.facilities)
+      when :silicing_order
+	silicing_order = stochastic_swap(layout.silicing_order)
+      when :orientation
+	orientation = stochastic_orientaion_swap(layout.oriantion_order) 
+      end
+    end
   end
 
 end
