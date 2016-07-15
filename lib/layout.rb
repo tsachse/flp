@@ -153,6 +153,11 @@ class Layout
     l
   end
 
+  def self.another_modifed_layout(layout)
+    return layout if layout.modify_params == nil
+    Layout.modifed_layout(layout,layout.modify_params)
+  end
+
 end
 
 

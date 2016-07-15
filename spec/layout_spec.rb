@@ -181,6 +181,28 @@ describe Layout do
     expect(silicing_order2.size).to eq(silicing_order.size)
     expect(orientation2).to include(1)
     expect(orientation2.size).to eq(orientation.size)
+    SVGHelper.layout_to_svg_file(l1,@output_path_pattern + 'modfied_layout_l1.svg')
+    SVGHelper.layout_to_svg_file(l2,@output_path_pattern + 'modfied_layout_l2.svg')
   end
 
+  it "another modified layout" do
+    silicing_order = [0,1,2,3,4,5]
+    orientation    = [0,0,0,0,0,0]
+    l1 = Layout.new(@facilities,silicing_order,orientation)
+    l2 = Layout.modifed_layout(l1, {:facilitiy_order => 1,:silicing_order => 1, :orientation => 1 })
+    l3 = Layout.another_modifed_layout(l2)
+    expect(l3.class).to eq(Layout)
+    expect(l3).not_to eq(l2)
+    facilities3     = l3.facilities
+    silicing_order3 = l3.silicing_order
+    orientation3    = l3.orientation
+    expect(facilities3).not_to contain_exactly(@facilities)
+    expect(facilities3.size).to eq(@facilities.size)
+    expect(silicing_order3).not_to contain_exactly(silicing_order)
+    expect(silicing_order3.size).to eq(silicing_order.size)
+    expect(orientation3.size).to eq(orientation.size)
+    SVGHelper.layout_to_svg_file(l1,@output_path_pattern + 'another_modfied_layout_l1.svg')
+    SVGHelper.layout_to_svg_file(l2,@output_path_pattern + 'another_modfied_layout_l2.svg')
+    SVGHelper.layout_to_svg_file(l3,@output_path_pattern + 'another_modfied_layout_l3.svg')
+  end
 end
