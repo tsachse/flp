@@ -140,26 +140,47 @@ describe Layout do
   end
 
   it "stochastic swap" do
-    l = Layout.initial_layout(@facilities)
-    expect(l.class).to eq(Layout)
     v1 = [1,2,3,4,5]
-    v2 = l.stochastic_swap(v1)
+    v2 = Layout.stochastic_swap(v1)
     expect(v1.size).to eq(v2.size)
     expect(v1).not_to contain_exactly(v2)
   end
 
   it "stochastic orientaion swap" do
-    l = Layout.initial_layout(@facilities)
-    expect(l.class).to eq(Layout)
     v1 = [1,1,1,1,1]
-    v2 = l.stochastic_orientation_swap(v1)
+    v2 = Layout.stochastic_orientation_swap(v1)
     expect(v1.size).to eq(v2.size)
     expect(v2).not_to contain_exactly(v1)
     expect(v2).to  include(0)
     v1 = [0,0,0,0,0]
-    v2 = l.stochastic_orientation_swap(v1)
+    v2 = Layout.stochastic_orientation_swap(v1)
     expect(v1.size).to eq(v2.size)
     expect(v2).not_to contain_exactly(v1)
-    expect(v2).to  include(0)
+    expect(v2).to  include(1)
   end
+
+  it "modifiable params" do
+    v = Layout.modifiable_params
+    expect(v).to match_array([:facilitiy_order, :silicing_order, :orientation])
+    p = Layout.random_modifiable_param
+    expect(v).to include(p)
+  end
+
+  it "modified layout" do
+    silicing_order = [0,1,2,3,4,5]
+    orientation    = [0,0,0,0,0,0]
+    l1 = Layout.new(@facilities,silicing_order,orientation)
+    l2 = Layout.modifed_layout(l1, {:facilitiy_order => 1,:silicing_order => 1, :orientation => 1 })
+    expect(l2.class).to eq(Layout)
+    facilities2     = l2.facilities
+    silicing_order2 = l2.silicing_order
+    orientation2    = l2.orientation
+    expect(facilities2).not_to contain_exactly(@facilities)
+    expect(facilities2.size).to eq(@facilities.size)
+    expect(silicing_order2).not_to contain_exactly(silicing_order)
+    expect(silicing_order2.size).to eq(silicing_order.size)
+    expect(orientation2).to include(1)
+    expect(orientation2.size).to eq(orientation.size)
+  end
+
 end

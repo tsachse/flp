@@ -1,13 +1,20 @@
 class Layout
   attr_reader :facilities
   attr_reader :silicing_order
+  attr_reader :silicing_order_work
   attr_reader :orientation
+  attr_reader :orientation_work
   attr_reader :facility_set
 
+  attr_accessor :modify_params
+
   def initialize(facilities, silicing_order, orientation)
+    @modified_params = nil
     @facilities = facilities
     @silicing_order = silicing_order
+    @silicing_order_work = silicing_order.clone
     @orientation = orientation
+    @orientation_work = orientation.clone
     @facility_set = []
     fs = FacilitySet.new(@facilities)
     @facility_set << fs
@@ -50,20 +57,20 @@ class Layout
   end
 
   def next_slice_position
-    sp = @silicing_order.shift
+    sp = @silicing_order_work.shift
     return nil if sp == nil
-    @orientation.shift
+    @orientation_work.shift
     @facilities[sp]
   end
 
   def slice_position
-    sp = @silicing_order.first
+    sp = @silicing_order_work.first
     return nil if sp == nil
     @facilities[sp].id
   end
 
   def slice_orientation
-    @orientation.first
+    @orientation_work.first
   end
 
   def facility_set_ids
@@ -85,7 +92,7 @@ class Layout
     af
   end
 
-  def stochastic_swap(vector)
+  def self.stochastic_swap(vector)
     v = vector.clone
     return v if v.size < 2
     i = rand(v.size)
@@ -100,7 +107,7 @@ class Layout
     v.insert(i, c2)
   end
 
-  def stochastic_orientation_swap(vector)
+  def self.stochastic_orientation_swap(vector)
     v = vector.clone
     i = rand(v.size)
     if v[i] == 0
@@ -117,21 +124,33 @@ class Layout
     Layout.new(facilties, silicing_order, orientation)
   end
 
-  # TODO zu Ende impl && Test
-  def self.modifed_layout(layout, which_params)
+  def self.modifiable_params
+    [:facilitiy_order, :silicing_order, :orientation]
+  end
+
+  def self.random_modifiable_param
+    Layout.modifiable_params[rand(Layout.modifiable_params.size)]
+  end
+
+
+  def self.modifed_layout(layout, modify_params)
     facilities = layout.facilities
     silicing_order = layout.silicing_order
     orientation = layout.orientation
-    which_params.keys.each do |k|
-      case k
+    modify_params.keys.each do |p|
+      k = modify_params[p]
+      case p
       when :facilitiy_order
-	facilities = stochastic_swap(layout.facilities)
+	k.times {facilities = Layout.stochastic_swap(facilities)}
       when :silicing_order
-	silicing_order = stochastic_swap(layout.silicing_order)
+	k.times {silicing_order = Layout.stochastic_swap(silicing_order)}
       when :orientation
-	orientation = stochastic_orientaion_swap(layout.oriantion_order) 
+	k.times {orientation = Layout.stochastic_orientation_swap(orientation)}
       end
     end
+    l = Layout.new(facilities, silicing_order, orientation)
+    l.modify_params = modify_params
+    l
   end
 
 end
