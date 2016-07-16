@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Layout do
+describe MaterialHandlingCosts do
   before(:each) do
     f0 = Facility.new(:f0, 100, 200)
     f1 = Facility.new(:f1, 100, 200)
