@@ -18,5 +18,31 @@ describe Facility do
     d2 = Facility.distance(f.north,f.west)
     expect(d1).to eq(d2)
   end
-
+  
+  it "detects line intersection using Liang-Barsky" do
+    # trivial rect
+    rect = Facility.new(:f1, 25, 25)
+    rect.x1 = 50
+    rect.y1 = 50
+    rect.x2 = 75
+    rect.y2 = 75
+    expect(rect.intersects_line?(25, 25, 85, 85)).to eq(true)
+    expect(rect.intersects_line?(95, 95, 150, 175)).to eq(false)
+    expect(rect.intersects_line?(25, 25, 60, 60)).to eq(true)
+    
+    # non-trivial clipping
+    # rect = Rect.new(75, 80, 150, 90)
+    rect = Facility.new(:f2, 150, 90)
+    rect.x1 = 75
+    rect.y1 = 80
+    rect.x2 = 225
+    rect.y2 = 170
+    expect(rect.intersects_line?(50, 50, 80, 80)).to eq(true)
+    expect(rect.intersects_line?(76, 81, 90, 90)).to eq(true)
+    expect(rect.intersects_line?(90, 90, 250, 250)).to eq(true)
+    expect(rect.intersects_line?(200, 200, 250, 250)).to eq(false)
+    expect(rect.intersects_line?(300, 80, 300, 125)).to eq(false)
+    
+  end
+  
 end

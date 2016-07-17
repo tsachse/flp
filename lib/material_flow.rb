@@ -13,6 +13,7 @@ class MaterialFlow
     @facility_map = {}
     @layout.arranged_facilities.each do |f|
       @facility_map[f.id] = f
+      f.feeding = nil # Aufgabepunkte sollen neu berechnet werden
     end
     build_layout_graph
     # @layout_graph = DijkstraGraph.new(@layout_edges)
@@ -22,7 +23,6 @@ class MaterialFlow
     @layout_edges = []
     af = @layout.arranged_facilities
     af.each_with_index do |f1,i|
-      f1.feeding = nil # Aufgabepunkte sollen neu berechnet werden
       facility_edges(f1)
       if (i + 1 < af.size)
 	f2 = af[i + 1] 
@@ -32,6 +32,7 @@ class MaterialFlow
 	@layout_edges << connect_neigbours(f2, f1, direction) 
       end
     end
+    @layout_graph = DijkstraGraph.new(@layout_edges)
   end
 
   def add_direct_connections
@@ -49,8 +50,6 @@ class MaterialFlow
       edge = connect_neigbours(f_start, f_stop, direction)
       p edge
     end
-
-
   end
 
   def layout_distance
