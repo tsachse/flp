@@ -31,7 +31,6 @@ describe Facility do
     expect(rect.intersects_line?(25, 25, 60, 60)).to eq(true)
     
     # non-trivial clipping
-    # rect = Rect.new(75, 80, 150, 90)
     rect = Facility.new(:f2, 150, 90)
     rect.x1 = 75
     rect.y1 = 80
@@ -42,7 +41,6 @@ describe Facility do
     expect(rect.intersects_line?(90, 90, 250, 250)).to eq(true)
     expect(rect.intersects_line?(200, 200, 250, 250)).to eq(false)
     expect(rect.intersects_line?(300, 80, 300, 125)).to eq(false)
-    
   end
   
 end
