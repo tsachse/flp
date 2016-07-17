@@ -76,10 +76,16 @@ a = [1,2,3,4,5,6,7,0]
 -----
 
 
-MaterialHandlingCost::
-* bekommt im Konstruktor neben den Layout noch die Materialflussreihenfolgen übergeben
+MaterialFlow (neue Klasse)::
+* bekommt im Konstruktor neben den Layout noch den Materialfluss übergeben
+** Liste mit Start-, Stop-Knoten und Anzahl Teile bzw. Wichtung
+* die Ermittlung des Graphen für den Meterialfluss hat zwei Aspekte
+** Knoten und Kanten auf Basis der Layoutbildung
+** Kanten auf Basis des Materialflusses -> direkte Verbindungen ermitteln
+** Ermittlung der Übergabepunkte fuer das Material auf Basis der Wichtung
 * die Nachbarschaftsbeziehungen zwischen den Graphen sind bidirektional
-* ggf. Nachbarschftsbezihungen auf Grund der Materialflussreigenfolge ermitteln
+* Liang-Barsky
+
 
 VNS::
 * Algorithmus implementieren

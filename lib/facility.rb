@@ -2,12 +2,13 @@ class Facility
   attr_reader :id
   attr_reader :width
   attr_reader :height
-  attr_reader :feeding
+  attr_accessor :feeding
   attr_accessor :x1
   attr_accessor :y1
   attr_accessor :x2
   attr_accessor :y2
 
+  # TODO: Parameter feeding spaeter entsorgen
   def initialize(id, width, height, feeding=:w)
     @id = id
     @width = width
