@@ -2,6 +2,7 @@ class MaterialFlow
   attr_reader :layout
   attr_reader :material_flow
   attr_reader :layout_edges
+  attr_reader :direct_mf_connections
   attr_reader :layout_graph
   attr_reader :layout_path
   attr_reader :facility_map
@@ -15,8 +16,14 @@ class MaterialFlow
       @facility_map[f.id] = f
       f.feeding = nil # Aufgabepunkte sollen neu berechnet werden
     end
+
     build_layout_graph
-    # @layout_graph = DijkstraGraph.new(@layout_edges)
+
+    @direct_mf_connections = []
+    add_direct_connections
+    @direct_mf_connections.each { |edge| @layout_edges << edge }
+
+    @layout_graph = DijkstraGraph.new(@layout_edges.uniq)
   end
 
   def build_layout_graph
@@ -32,24 +39,42 @@ class MaterialFlow
 	@layout_edges << connect_neigbours(f2, f1, direction) 
       end
     end
-    @layout_graph = DijkstraGraph.new(@layout_edges)
+    # @layout_graph = DijkstraGraph.new(@layout_edges)
   end
 
   def add_direct_connections
+    @direct_mf_connections = []
     mf = @material_flow.sort do |a,b|
       a_start, a_stop, a_items = a
       b_start, b_stop, b_items = b
       b_items <=> a_items
     end
-    mf.each do |i|
-      start, stop, items = i
+    mf.each do |e|
+      start, stop, items = e
       f_start = @facility_map[start]
       f_stop = @facility_map[stop]
-      direction = neighbour_direction(f_start, f_stop)
-      p direction
-      edge = connect_neigbours(f_start, f_stop, direction)
-      p edge
+      p_start = [f_start.north, f_start.west, f_start.south, f_start.east]
+      p_stop  = [f_stop.north,  f_stop.west,  f_stop.south,  f_stop.east]
+      dir     = [:n, :w, :s, :e]
+      p_start.each_with_index do |p1, i|
+	x1,y1 = p1
+	p_stop.each_with_index do |p2, j|
+	  x2,y2 = p2
+	  edge = nil
+	  @layout.arranged_facilities.each do |f|
+	      if f.intersects_line?(x1, y1, x2, y2)
+		edge = nil
+		break
+	      else
+		d = Facility.distance(p1,p2)
+		edge = ["#{f_start.id.to_s}_#{dir[i]}", "#{f_stop.id.to_s}_#{dir[j]}", d]
+	      end
+	  end
+	  @direct_mf_connections << edge if edge != nil
+	end
+      end
     end
+    @direct_mf_connections
   end
 
   def layout_distance

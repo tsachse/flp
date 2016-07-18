@@ -44,6 +44,10 @@ class Facility
 
   # Quelle:
   # https://github.com/EddM/Liang-Barsky/blob/master/lib/rect.rb
+  # Die Funktion wurde so angepasst, dass die Start-/Endpunkte der Linien
+  # nicht zum Schnitt fuehren
+  # (@x1+1), @y1+1, @x2-1, @y2-1 --> Das Rechteck wird fuer die Betrachtung
+  # verkleinert.
   def intersects_line?(x1, y1, x2, y2)
     t0 = 0.0
     t1 = 1.0
@@ -56,22 +60,22 @@ class Facility
       
       if edge == 0 # left edge
         p = -x_delta
-        q = -(@x1 - x1)
+        q = -(@x1 + 1 - x1)
       end
       
       if edge == 1 # right edge
         p = x_delta
-        q = (@x2 - x1)
+        q = (@x2 - 1 - x1)
       end
       
       if edge == 2 # top edge
         p = -(y_delta)
-        q = -(@y1 - y1)
+        q = -(@y1 + 1 - y1)
       end
       
       if edge == 3 # bottom edge
         p = y_delta
-        q = (@y2-y1)
+        q = (@y2 - 1 - y1)
       end
 
       r = q.to_f / p.to_f
