@@ -8,6 +8,7 @@ class MaterialFlow
   attr_reader :layout_path
   attr_reader :facility_map
   attr_reader :distance
+  attr_reader :costs
 
   def initialize(layout, material_flow)
     @layout = layout
@@ -32,6 +33,10 @@ class MaterialFlow
     @layout_graph = DijkstraGraph.new(@layout_edges.uniq)
 
     find_feeding
+    calculate_costs
+
+    @layout.material_flow = self
+
   end
 
   def build_layout_graph
@@ -109,27 +114,45 @@ class MaterialFlow
     end
   end
 
-  def layout_distance
+  def calculate_costs
     @layout_path = []
     @distance = 0
-    af = @layout.arranged_facilities
-    af.each_with_index do |f1,i|
-      if (i + 1 < af.size)
-	f2 = af[i + 1] 
-	start = "#{f1.id.to_s}_#{f1.feeding.to_s}"
-	stop  = "#{f2.id.to_s}_#{f2.feeding.to_s}"
-	path, dist = @layout_graph.shortest_path(start, stop)
-	@distance = @distance + dist
-	@layout_path << path
-
-	# p '---'
-	p start, stop, dist, path
-	# @layout_edges << connect_neigbours(f1, f2, direction)
-      end
+    @costs = 0
+    @ordered_material_flow.each do |e|
+      start, stop, items = e
+      f1 = @facility_map[start]
+      f2 = @facility_map[stop]
+      start = "#{f1.id.to_s}_#{f1.feeding.to_s}"
+      stop  = "#{f2.id.to_s}_#{f2.feeding.to_s}"
+      path, dist = @layout_graph.shortest_path(start, stop)
+      @distance = @distance + dist
+      @costs = @costs + (dist * items)
+      @layout_path << path
     end
-    @layout_path = @layout_path
-    @distance
+    @costs
   end
+
+#  def layout_distance
+#    @layout_path = []
+#    @distance = 0
+#    af = @layout.arranged_facilities
+#    af.each_with_index do |f1,i|
+#      if (i + 1 < af.size)
+#	f2 = af[i + 1] 
+#	start = "#{f1.id.to_s}_#{f1.feeding.to_s}"
+#	stop  = "#{f2.id.to_s}_#{f2.feeding.to_s}"
+#	path, dist = @layout_graph.shortest_path(start, stop)
+#	@distance = @distance + dist
+#	@layout_path << path
+#
+#	# p '---'
+#	p start, stop, dist, path
+#	# @layout_edges << connect_neigbours(f1, f2, direction)
+#      end
+#    end
+#    @layout_path = @layout_path
+#    @distance
+#  end
 
   def facility_edges(f)
     distance = f.width/2 + f.height/2

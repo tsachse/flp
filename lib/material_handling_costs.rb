@@ -40,7 +40,7 @@ class MaterialHandlingCosts
 	@material_flow_path << path
 
 	# p '---'
-	p start, stop, dist, path
+	# p start, stop, dist, path
 	# @material_flow_edges << connect_neigbours(f1, f2, direction)
       end
     end

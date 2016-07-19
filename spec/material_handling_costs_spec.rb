@@ -25,8 +25,8 @@ describe MaterialHandlingCosts do
     edges =  mhc.material_flow_edges
     d = mhc.material_flow_distance
     flow =  mhc.material_flow_path
-    p d
-    p mhc.material_flow_path
+    #p d
+    #p mhc.material_flow_path
     DotHelper.edges_to_dot_file(edges, flow, @output_path_pattern + 'new_instance.dot')
 
   end
@@ -36,7 +36,7 @@ describe MaterialHandlingCosts do
     expect(l.class).to eq(Layout)
     mhc = MaterialHandlingCosts.new(l)
     d = mhc.material_flow_distance
-    p d
+    #p d
   end
 
 end

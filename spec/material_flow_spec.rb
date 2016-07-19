@@ -34,6 +34,9 @@ describe MaterialFlow do
     mf.find_feeding
     expect(mf.facility_map[:f0].feeding).to eq(:s)
     expect(mf.facility_map[:f5].feeding).to eq(:n)
+    mf.calculate_costs
+    expect(mf.costs).to be > mf.distance
+    expect(mf.costs).to eq(layout.material_flow.costs)
 
     #expect(mhc.class).to eq(MaterialHandlingCosts)
     #edges =  mhc.material_flow_edges

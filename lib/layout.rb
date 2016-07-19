@@ -9,6 +9,7 @@ class Layout
   attr_accessor :modify_params
 
   attr_accessor :mhc
+  attr_accessor :material_flow
 
   def initialize(facilities, silicing_order, orientation)
     @modified_params = nil
