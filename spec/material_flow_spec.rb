@@ -31,6 +31,9 @@ describe MaterialFlow do
     mf = MaterialFlow.new(layout, material_flow)
     edges = mf.direct_mf_connections
     expect(edges).to include(["f1_e", "f4_n", 1241.974234837422]) 
+    mf.find_feeding
+    expect(mf.facility_map[:f0].feeding).to eq(:s)
+    expect(mf.facility_map[:f5].feeding).to eq(:n)
 
     #expect(mhc.class).to eq(MaterialHandlingCosts)
     #edges =  mhc.material_flow_edges

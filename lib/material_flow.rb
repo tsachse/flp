@@ -1,6 +1,7 @@
 class MaterialFlow
   attr_reader :layout
   attr_reader :material_flow
+  attr_reader :ordered_material_flow
   attr_reader :layout_edges
   attr_reader :direct_mf_connections
   attr_reader :layout_graph
@@ -11,6 +12,11 @@ class MaterialFlow
   def initialize(layout, material_flow)
     @layout = layout
     @material_flow = material_flow
+    @ordered_material_flow = @material_flow.sort do |a,b|
+      a_start, a_stop, a_items = a
+      b_start, b_stop, b_items = b
+      b_items <=> a_items
+    end
     @facility_map = {}
     @layout.arranged_facilities.each do |f|
       @facility_map[f.id] = f
@@ -24,6 +30,8 @@ class MaterialFlow
     @direct_mf_connections.each { |edge| @layout_edges << edge }
 
     @layout_graph = DijkstraGraph.new(@layout_edges.uniq)
+
+    find_feeding
   end
 
   def build_layout_graph
@@ -44,12 +52,7 @@ class MaterialFlow
 
   def add_direct_connections
     @direct_mf_connections = []
-    mf = @material_flow.sort do |a,b|
-      a_start, a_stop, a_items = a
-      b_start, b_stop, b_items = b
-      b_items <=> a_items
-    end
-    mf.each do |e|
+    @ordered_material_flow.each do |e|
       start, stop, items = e
       f_start = @facility_map[start]
       f_stop = @facility_map[stop]
@@ -75,6 +78,35 @@ class MaterialFlow
       end
     end
     @direct_mf_connections
+  end
+
+  def find_feeding
+    @ordered_material_flow.each do |e|
+      start, stop, items = e
+      f_start = @facility_map[start]
+      f_stop = @facility_map[stop]
+      p_start = p_stop = [:n, :w, :s, :e]
+      p_start = [f_start.feeding] if f_start.feeding != nil
+      p_stop  = [f_stop.feeding]  if f_stop.feeding != nil
+      if p_start.size > 1 || p_stop.size > 1
+	min = Float::INFINITY
+	p_start.each_with_index do |p1, i|
+	  p_stop.each_with_index do |p2, j| 
+	    v1 = "#{f_start.id.to_s}_#{p_start[i]}" 
+	    v2 = "#{f_stop.id.to_s}_#{p_stop[j]}" 
+	    path, dist = @layout_graph.shortest_path(v1, v2)
+	    if dist < min
+	      min = dist
+	      f_start.feeding = p_start[i] if p_start.size > 1
+	      f_stop.feeding = p_stop[j] if p_stop.size > 1
+	      # p f_start
+	      # p f_stop
+	      # p min
+	    end
+	  end
+	end
+      end
+    end
   end
 
   def layout_distance
