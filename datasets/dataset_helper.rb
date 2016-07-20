@@ -14,8 +14,8 @@ class DatasetHelper
   def self.run(dataset_name, facilities, material_flow, neighbours, max_no_improv, max_no_improv_ls)
     fn_logfile = File.dirname(__FILE__) + '/output/dataset.log'
     output_path_pattern = File.dirname(__FILE__) + '/output/' + dataset_name + '_'
-
     logger = Logger.new(fn_logfile)
+
     logger.debug("Start " +  dataset_name + " ****************************")
     logger.debug('facilities: ' + facilities.inspect.to_s)
     logger.debug('material_flow: ' + material_flow.inspect.to_s)
@@ -58,13 +58,12 @@ class DatasetHelper
     s['best_costs'] = best.material_flow.costs
     s['best_distance'] = best.material_flow.distance;
     logger.info(JSON.generate(s));
-
-
     logger.debug("Stop  " +  dataset_name + " ****************************")
-    logger.close
-
     SVGHelper.layout_to_svg_file(initial,output_path_pattern + 'initial_layout.svg')
     SVGHelper.layout_to_svg_file(best,output_path_pattern + 'best_layout.svg')
+
+    logger.close
+
 
     vns
   end
