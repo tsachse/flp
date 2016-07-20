@@ -44,7 +44,7 @@ class VariableNeighborhoodSearch
 	  @best_layout = candidate
 	  @best_iter = @iter
 	  count = 0
-	  # break # warum?
+	  break # restart search
 	else
 	  count += 1
 	end
