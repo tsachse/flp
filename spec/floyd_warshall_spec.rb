@@ -14,11 +14,7 @@ describe FloydWarshall do
     f = FloydWarshall.new(nil)
     f.matrix = m
     f.warshall
-     
     expect(f.class).to eq(FloydWarshall)
-
-    p FloydWarshall.show f.matrix
-    p FloydWarshall.show f.short
   end
 
   it "test distance" do
@@ -31,12 +27,15 @@ describe FloydWarshall do
       [:c, :d, 11],
       [:c, :f, 2],
       [:d, :e, 6],
-      [:e, :f, 9],
+      [:e, :f, 9]
     ]
     f = FloydWarshall.new(e)
     f.build_matrix
-    p FloydWarshall.show f.matrix
-    p f.dist(:a,:e)
+    f.warshall
+    expect(f.dist(:a,:b)).to eq(7)
+    expect(f.dist(:a,:c)).to eq(9)
+    expect(f.dist(:a,:e)).to eq(26)
+    expect(f.dist(:a,:d)).to eq(20)
 
   end
 

@@ -1,4 +1,5 @@
 require File.dirname(__FILE__) + '/dataset_helper'
+# require 'profile'
 
 describe VariableNeighborhoodSearch do
 

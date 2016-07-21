@@ -39,9 +39,7 @@ class FloydWarshall
   end
 
   def dist(start,stop)
-    p @vertex_map[start]
-    p @vertex_map[stop]
-    @matrix[@vertex_map[start],@vertex_map[stop]]
+    @short[@vertex_map[start],@vertex_map[stop]]
   end
  
   def self.show(matrix)
