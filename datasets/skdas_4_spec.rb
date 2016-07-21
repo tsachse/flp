@@ -2,7 +2,7 @@ require File.dirname(__FILE__) + '/dataset_helper'
 
 describe VariableNeighborhoodSearch do
 
-  it "4 Facilities - 100" do
+  it "4 Facilities" do
     f1 = Facility.new(:f1, 18, 10)
     f2 = Facility.new(:f2,  9,  5)
     f3 = Facility.new(:f3, 10, 10)
@@ -22,7 +22,7 @@ describe VariableNeighborhoodSearch do
     max_no_improv = 50
     max_no_improv_ls = 20
 
-    vns = DatasetHelper.run('skas_4_100',facilities, material_flow, neighbours, max_no_improv, max_no_improv_ls) 
+    vns = DatasetHelper.run('skas_4',facilities, material_flow, neighbours, max_no_improv, max_no_improv_ls) 
     expect(vns.class).to eq(VariableNeighborhoodSearch)
 
   end
