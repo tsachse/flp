@@ -122,7 +122,7 @@ class Layout
   end
 
   def self.initial_layout(facilties)
-    silicing_order = (0..(facilties.size-1)).to_a.shuffle
+    silicing_order = (0..(facilties.size-2)).to_a.shuffle
     orientation = silicing_order.map { |v| v % 2 }
     Layout.new(facilties, silicing_order, orientation)
   end

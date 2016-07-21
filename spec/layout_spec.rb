@@ -136,6 +136,8 @@ describe Layout do
   it "initial layout" do
     l = Layout.initial_layout(@facilities)
     expect(l.class).to eq(Layout)
+    expect(l.silicing_order.size + 1).to eq(@facilities.size)
+    expect(l.orientation.size + 1).to eq(@facilities.size)
     img = SVGHelper.layout_to_svg_file(l,@output_path_pattern + 'initial_layout.svg')
   end
 

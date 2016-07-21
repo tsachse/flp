@@ -34,9 +34,11 @@ class VariableNeighborhoodSearch
     @best_layout = @initial_layout
     @iter, count = 0, 0
     while count < max_no_improv 
+      # param = @modifiable_params[(iter % @modifiable_params.size)]
       neighborhoods.each do |neigh|
 	@iter += 1 
-	modify_params = { @modifiable_params[(iter % @modifiable_params.size)] => neigh }
+	param = @modifiable_params[(iter % @modifiable_params.size)]
+	modify_params = { param => neigh }
 	candidate = Layout.modifed_layout(@best_layout, modify_params)
 	candidate.material_flow = MaterialFlow.new(candidate,@material_flow) 
 	candidate = local_search(candidate, max_no_improv_ls, neigh) 
