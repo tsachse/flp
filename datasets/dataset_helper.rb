@@ -29,20 +29,20 @@ class DatasetHelper
     t2 = Time.now
     initial = vns.initial_layout
 
-    logger.debug('vns.iter: ' + vns.iter.inspect.to_s)
-    logger.debug('vns.best_iter: ' + vns.best_iter.inspect.to_s)
-    logger.debug('initial.material_flow.costs: ' + initial.material_flow.costs.inspect.to_s)
-    logger.debug('initial.material_flow.distance: ' + initial.material_flow.distance.inspect.to_s)
     logger.debug('initial.material_flow.facility_map: ' + initial.material_flow.facility_map.inspect.to_s)
     logger.debug('initial.facilities: ' + initial.facilities.inspect.to_s)
     logger.debug('initial.silicing_order: ' + initial.silicing_order.inspect.to_s)
     logger.debug('initial.orientation: ' + initial.orientation.inspect.to_s)
-    logger.debug('best.material_flow.costs: ' + best.material_flow.costs.inspect.to_s)
-    logger.debug('best.material_flow.distance: ' + best.material_flow.distance.inspect.to_s)
     logger.debug('best.material_flow.facility_map: ' + best.material_flow.facility_map.inspect.to_s)
     logger.debug('best.facilities: ' + best.facilities.inspect.to_s)
     logger.debug('best.silicing_order: ' + best.silicing_order.inspect.to_s)
     logger.debug('best.orientation: ' + best.orientation.inspect.to_s)
+    logger.debug('vns.iter: ' + vns.iter.inspect.to_s)
+    logger.debug('vns.best_iter: ' + vns.best_iter.inspect.to_s)
+    logger.debug('initial.material_flow.costs: ' + initial.material_flow.costs.inspect.to_s)
+    logger.debug('initial.material_flow.distance: ' + initial.material_flow.distance.inspect.to_s)
+    logger.debug('best.material_flow.costs: ' + best.material_flow.costs.inspect.to_s)
+    logger.debug('best.material_flow.distance: ' + best.material_flow.distance.inspect.to_s)
     logger.debug('duration: ' + (t2 - t1).to_s)
 
     s = Hash.new

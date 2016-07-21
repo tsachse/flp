@@ -18,9 +18,9 @@ describe VariableNeighborhoodSearch do
       [:f3, :f4, 12]
     ]
 
-    neighbours = 1..20
-    max_no_improv = 100
-    max_no_improv_ls = 50
+    neighbours = 1..5
+    max_no_improv = 50
+    max_no_improv_ls = 20
 
     vns = DatasetHelper.run('skas_4_100',facilities, material_flow, neighbours, max_no_improv, max_no_improv_ls) 
     expect(vns.class).to eq(VariableNeighborhoodSearch)
