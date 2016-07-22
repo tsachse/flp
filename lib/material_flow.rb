@@ -74,6 +74,7 @@ class MaterialFlow
 	      edge = ["#{f_start.id.to_s}_#{dir[i]}", "#{f_stop.id.to_s}_#{dir[j]}", d]
 	    end
 	end
+	# p edge if edge != nil
 	@layout_edges << edge if edge != nil
 	end
       end
@@ -128,9 +129,7 @@ class MaterialFlow
 	      min = dist
 	      f_start.feeding = p_start[i] if p_start.size > 1
 	      f_stop.feeding = p_stop[j] if p_stop.size > 1
-	      # p f_start
-	      # p f_stop
-	      # p min
+	      # p "#{f_start.id} #{f_start.feeding}, #{f_stop.id} #{f_stop.feeding}, #{dist.to_s}"
 	    end
 	  end
 	end
@@ -149,7 +148,7 @@ class MaterialFlow
       start = "#{f1.id.to_s}_#{f1.feeding.to_s}"
       stop  = "#{f2.id.to_s}_#{f2.feeding.to_s}"
       path, dist = @layout_graph.shortest_path(start, stop)
-      # p start, stop
+      # p "#{start}, #{stop}, #{dist.to_s}"
       # p dist
       @distance = @distance + dist
       @costs = @costs + (dist * items)

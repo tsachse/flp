@@ -30,7 +30,7 @@ class MaterialFlowFloyd
     add_direct_connections
     @direct_mf_connections.each { |edge| @layout_edges << edge }
 
-    @layout_graph = FloydWarshall.new(@layout_edges, true)
+    @layout_graph = FloydWarshall.new(@layout_edges.uniq, true)
 
     find_feeding
     calculate_costs
@@ -73,6 +73,7 @@ class MaterialFlowFloyd
 	      edge = ["#{f_start.id.to_s}_#{dir[i]}", "#{f_stop.id.to_s}_#{dir[j]}", d]
 	    end
 	end
+	# p edge if edge != nil
 	@layout_edges << edge if edge != nil
 	end
       end
@@ -101,6 +102,7 @@ class MaterialFlowFloyd
 		edge = ["#{f_start.id.to_s}_#{dir[i]}", "#{f_stop.id.to_s}_#{dir[j]}", d]
 	      end
 	  end
+	  # p edge if edge != nil
 	  @direct_mf_connections << edge if edge != nil
 	end
       end
@@ -123,6 +125,7 @@ class MaterialFlowFloyd
 	    v1 = "#{f_start.id.to_s}_#{p_start[i]}" 
 	    v2 = "#{f_stop.id.to_s}_#{p_stop[j]}" 
 	    dist = @layout_graph.dist(v1, v2)
+	    #p "#{v1}, #{v2}, #{dist.to_s}"
 	    if dist < min
 	      min = dist
 	      f_start.feeding = p_start[i] if p_start.size > 1
@@ -130,6 +133,7 @@ class MaterialFlowFloyd
 	      #p f_start
 	      #p f_stop
 	      #p min
+	      # p "#{f_start.id} #{f_start.feeding}, #{f_stop.id} #{f_stop.feeding}, #{dist.to_s}"
 	    end
 	  end
 	end
@@ -148,8 +152,7 @@ class MaterialFlowFloyd
       start = "#{f1.id.to_s}_#{f1.feeding.to_s}"
       stop  = "#{f2.id.to_s}_#{f2.feeding.to_s}"
       dist = @layout_graph.dist(start, stop)
-      #p start, stop
-      #p dist
+      # p "#{start}, #{stop}, #{dist.to_s}"
       @distance = @distance + dist
       @costs = @costs + (dist * items)
       @layout_path << 'x'

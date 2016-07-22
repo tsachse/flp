@@ -21,7 +21,7 @@ describe MaterialFlow do
       silicing_order = [2, 0, 1]
       orientation =   [0, 1, 0]
       layout = Layout.new(facilities,silicing_order,orientation)
-      mf = MaterialFlow.new(layout, material_flow)
+      mf = MaterialFlowFloyd.new(layout, material_flow)
       expect(mf.distance.round).to  eq(36)
       expect(mf.costs.round).to  eq(766)
     end

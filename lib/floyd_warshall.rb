@@ -37,7 +37,7 @@ class FloydWarshall
       end
     end
 
-    matrix = Matrix.build(i, i) {|row, col| 0 }.to_a
+    matrix = Matrix.build(i, i) {|row, col| -1 }.to_a
     @edges.each do |e|
       start, stop, dist = e
       matrix[@vertex_map[start]][@vertex_map[stop]] = dist
@@ -61,7 +61,7 @@ class FloydWarshall
     short = Matrix.build(n){ i }.to_a
     n.times do |x|
       n.times do |y|
-        short[x][y] = @matrix[x, y] if @matrix[x, y] > 0
+        short[x][y] = @matrix[x, y] if @matrix[x, y] > -1
       end
       short[x][x] = 0
     end
