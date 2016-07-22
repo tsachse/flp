@@ -8,12 +8,14 @@ require 'matrix'
 
 class FloydWarshall
   attr_reader :edges
+  attr_reader :bidirectional
   attr_accessor :matrix
   attr_reader :short
   attr_reader :vertex_map
 
-  def initialize(edges)
+  def initialize(edges, bidirectional = false)
     @edges = edges
+    @bidirectional = bidirectional
     if edges != nil
       build_matrix 
       warshall
@@ -34,10 +36,12 @@ class FloydWarshall
 	i = i + 1
       end
     end
+
     matrix = Matrix.build(i, i) {|row, col| 0 }.to_a
     @edges.each do |e|
       start, stop, dist = e
       matrix[@vertex_map[start]][@vertex_map[stop]] = dist
+      matrix[@vertex_map[stop]][@vertex_map[start]] = dist if @bidirectional
     end
     @matrix = Matrix.rows(matrix)
   end

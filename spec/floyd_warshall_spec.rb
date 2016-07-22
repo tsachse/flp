@@ -29,12 +29,13 @@ describe FloydWarshall do
       [:d, :e, 6],
       [:e, :f, 9]
     ]
-    f = FloydWarshall.new(e)
-    #f.build_matrix
-    #f.warshall
+    
+    f = FloydWarshall.new(e,true)
+    # f.build_matrix
+    # f.warshall
     expect(f.dist(:a,:b)).to eq(7)
     expect(f.dist(:a,:c)).to eq(9)
-    expect(f.dist(:a,:e)).to eq(26)
+    expect(f.dist(:a,:e)).to eq(20)
     expect(f.dist(:a,:d)).to eq(20)
 
   end
