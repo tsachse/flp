@@ -29,13 +29,17 @@ describe FloydWarshall do
       [:d, :e, 6],
       [:e, :f, 9]
     ]
-    f = FloydWarshall.new(e)
-    #f.build_matrix
-    #f.warshall
-    expect(f.dist(:a,:b)).to eq(7)
-    expect(f.dist(:a,:c)).to eq(9)
-    expect(f.dist(:a,:e)).to eq(26)
-    expect(f.dist(:a,:d)).to eq(20)
+    100000.times do
+      f = FloydWarshall.new(e)
+      #f.build_matrix
+      #f.warshall
+      10.times do
+	expect(f.dist(:a,:b)).to eq(7)
+	expect(f.dist(:a,:c)).to eq(9)
+	expect(f.dist(:a,:e)).to eq(26)
+	expect(f.dist(:a,:d)).to eq(20)
+      end
+    end
 
   end
 

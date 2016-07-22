@@ -14,6 +14,10 @@ class FloydWarshall
 
   def initialize(edges)
     @edges = edges
+    if edges != nil
+      build_matrix 
+      warshall
+    end
   end
 
   def build_matrix
