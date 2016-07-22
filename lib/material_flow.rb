@@ -46,13 +46,37 @@ class MaterialFlow
       facility_edges(f1)
       if (i + 1 < af.size)
 	f2 = af[i + 1] 
-	direction = neighbour_direction(f1, f2)
-	@layout_edges << connect_neigbours(f1, f2, direction)
-	direction = neighbour_direction(f2, f1)
-	@layout_edges << connect_neigbours(f2, f1, direction) 
+	#direction = neighbour_direction(f1, f2)
+	#@layout_edges << connect_neigbours(f1, f2, direction)
+	#direction = neighbour_direction(f2, f1)
+	#@layout_edges << connect_neigbours(f2, f1, direction) 
+	connect_neigbours2(f1, f2)
       end
     end
     # @layout_graph = DijkstraGraph.new(@layout_edges)
+  end
+
+  def connect_neigbours2(f_start, f_stop)
+    p_start = [f_start.north, f_start.west, f_start.south, f_start.east]
+    p_stop  = [f_stop.north,  f_stop.west,  f_stop.south,  f_stop.east]
+    dir     = [:n, :w, :s, :e]
+    p_start.each_with_index do |p1, i|
+      x1,y1 = p1
+      p_stop.each_with_index do |p2, j|
+	x2,y2 = p2
+	edge = nil
+	@layout.arranged_facilities.each do |f|
+	    if f.intersects_line?(x1, y1, x2, y2)
+	      edge = nil
+	      break
+	    else
+	      d = Facility.distance(p1,p2)
+	      edge = ["#{f_start.id.to_s}_#{dir[i]}", "#{f_stop.id.to_s}_#{dir[j]}", d]
+	    end
+	end
+	@layout_edges << edge if edge != nil
+	end
+      end
   end
 
   def add_direct_connections
@@ -125,6 +149,8 @@ class MaterialFlow
       start = "#{f1.id.to_s}_#{f1.feeding.to_s}"
       stop  = "#{f2.id.to_s}_#{f2.feeding.to_s}"
       path, dist = @layout_graph.shortest_path(start, stop)
+      # p start, stop
+      # p dist
       @distance = @distance + dist
       @costs = @costs + (dist * items)
       @layout_path << path
@@ -161,10 +187,10 @@ class MaterialFlow
     @layout_edges << ["#{f.id.to_s}_s", "#{f.id.to_s}_w", distance]
     @layout_edges << ["#{f.id.to_s}_w", "#{f.id.to_s}_n", distance]
     #
-    @layout_edges << ["#{f.id.to_s}_n", "#{f.id.to_s}_w", distance]
-    @layout_edges << ["#{f.id.to_s}_w", "#{f.id.to_s}_s", distance]
-    @layout_edges << ["#{f.id.to_s}_s", "#{f.id.to_s}_e", distance]
-    @layout_edges << ["#{f.id.to_s}_e", "#{f.id.to_s}_n", distance]
+    # @layout_edges << ["#{f.id.to_s}_n", "#{f.id.to_s}_w", distance]
+    # @layout_edges << ["#{f.id.to_s}_w", "#{f.id.to_s}_s", distance]
+    # @layout_edges << ["#{f.id.to_s}_s", "#{f.id.to_s}_e", distance]
+    # @layout_edges << ["#{f.id.to_s}_e", "#{f.id.to_s}_n", distance]
   end
 
   def neighbour_direction(f1, f2)

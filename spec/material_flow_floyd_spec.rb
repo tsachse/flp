@@ -70,8 +70,9 @@ describe MaterialFlowFloyd do
     mf = MaterialFlowFloyd.new(layout, material_flow)
     # expect(mf.distance.round).to  eq(34)
     # expect(mf.costs.round).to  eq(728)
-    #p mf.distance.round
-    #p mf.costs.round
+    # p '----'
+    # p mf.distance.round
+    # p mf.costs.round
     #p FloydWarshall.show mf.layout_graph.short
     #p 'x'
     #p FloydWarshall.show mf.layout_graph.matrix

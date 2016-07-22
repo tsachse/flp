@@ -30,7 +30,7 @@ class MaterialFlowFloyd
     add_direct_connections
     @direct_mf_connections.each { |edge| @layout_edges << edge }
 
-    @layout_graph = FloydWarshall.new(@layout_edges.uniq)
+    @layout_graph = FloydWarshall.new(@layout_edges, true)
 
     find_feeding
     calculate_costs
@@ -46,12 +46,36 @@ class MaterialFlowFloyd
       facility_edges(f1)
       if (i + 1 < af.size)
 	f2 = af[i + 1] 
-	direction = neighbour_direction(f1, f2)
-	@layout_edges << connect_neigbours(f1, f2, direction)
-	direction = neighbour_direction(f2, f1)
-	@layout_edges << connect_neigbours(f2, f1, direction) 
+	#direction = neighbour_direction(f1, f2)
+	#@layout_edges << connect_neigbours(f1, f2, direction)
+	#direction = neighbour_direction(f2, f1)
+	#@layout_edges << connect_neigbours(f2, f1, direction) 
+	connect_neigbours2(f1, f2)
       end
     end
+  end
+
+  def connect_neigbours2(f_start, f_stop)
+    p_start = [f_start.north, f_start.west, f_start.south, f_start.east]
+    p_stop  = [f_stop.north,  f_stop.west,  f_stop.south,  f_stop.east]
+    dir     = [:n, :w, :s, :e]
+    p_start.each_with_index do |p1, i|
+      x1,y1 = p1
+      p_stop.each_with_index do |p2, j|
+	x2,y2 = p2
+	edge = nil
+	@layout.arranged_facilities.each do |f|
+	    if f.intersects_line?(x1, y1, x2, y2)
+	      edge = nil
+	      break
+	    else
+	      d = Facility.distance(p1,p2)
+	      edge = ["#{f_start.id.to_s}_#{dir[i]}", "#{f_stop.id.to_s}_#{dir[j]}", d]
+	    end
+	end
+	@layout_edges << edge if edge != nil
+	end
+      end
   end
 
   def add_direct_connections
@@ -103,9 +127,9 @@ class MaterialFlowFloyd
 	      min = dist
 	      f_start.feeding = p_start[i] if p_start.size > 1
 	      f_stop.feeding = p_stop[j] if p_stop.size > 1
-	      # p f_start
-	      # p f_stop
-	      # p min
+	      #p f_start
+	      #p f_stop
+	      #p min
 	    end
 	  end
 	end
@@ -124,6 +148,8 @@ class MaterialFlowFloyd
       start = "#{f1.id.to_s}_#{f1.feeding.to_s}"
       stop  = "#{f2.id.to_s}_#{f2.feeding.to_s}"
       dist = @layout_graph.dist(start, stop)
+      #p start, stop
+      #p dist
       @distance = @distance + dist
       @costs = @costs + (dist * items)
       @layout_path << 'x'
@@ -160,10 +186,10 @@ class MaterialFlowFloyd
     @layout_edges << ["#{f.id.to_s}_s", "#{f.id.to_s}_w", distance]
     @layout_edges << ["#{f.id.to_s}_w", "#{f.id.to_s}_n", distance]
     #
-    @layout_edges << ["#{f.id.to_s}_n", "#{f.id.to_s}_w", distance]
-    @layout_edges << ["#{f.id.to_s}_w", "#{f.id.to_s}_s", distance]
-    @layout_edges << ["#{f.id.to_s}_s", "#{f.id.to_s}_e", distance]
-    @layout_edges << ["#{f.id.to_s}_e", "#{f.id.to_s}_n", distance]
+    #@layout_edges << ["#{f.id.to_s}_n", "#{f.id.to_s}_w", distance]
+    #@layout_edges << ["#{f.id.to_s}_w", "#{f.id.to_s}_s", distance]
+    #@layout_edges << ["#{f.id.to_s}_s", "#{f.id.to_s}_e", distance]
+    #@layout_edges << ["#{f.id.to_s}_e", "#{f.id.to_s}_n", distance]
   end
 
   def neighbour_direction(f1, f2)
