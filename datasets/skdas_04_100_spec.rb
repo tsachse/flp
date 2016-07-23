@@ -19,12 +19,32 @@ describe VariableNeighborhoodSearch do
       [:f3, :f4, 12]
     ]
 
-    neighbours = 1..5
-    max_no_improv = 50
-    max_no_improv_ls = 20
+    50.times do
+      neighbours = 1..5
+      max_no_improv = 50
+      max_no_improv_ls = 20
 
-    vns = DatasetHelper.run('skas_4',facilities, material_flow, neighbours, max_no_improv, max_no_improv_ls) 
-    expect(vns.class).to eq(VariableNeighborhoodSearch)
+      vns = DatasetHelper.run('skas_4',facilities, material_flow, neighbours, max_no_improv, max_no_improv_ls) 
+      expect(vns.class).to eq(VariableNeighborhoodSearch)
+    end
+
+    20.times do
+      neighbours = 1..17
+      max_no_improv = 150
+      max_no_improv_ls = 20
+
+      vns = DatasetHelper.run('skas_4',facilities, material_flow, neighbours, max_no_improv, max_no_improv_ls) 
+      expect(vns.class).to eq(VariableNeighborhoodSearch)
+    end
+
+    30.times do
+      neighbours = 71..75
+      max_no_improv = 50
+      max_no_improv_ls = 20
+
+      vns = DatasetHelper.run('skas_4',facilities, material_flow, neighbours, max_no_improv, max_no_improv_ls) 
+      expect(vns.class).to eq(VariableNeighborhoodSearch)
+    end
 
   end
 
