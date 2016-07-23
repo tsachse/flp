@@ -33,6 +33,12 @@ http://stackoverflow.com/questions/1373035/how-do-i-scale-one-rectangle-to-the-m
 cd ~/Docker/flp
 docker build -t flp .
 docker run -it -v $PWD:/Code --rm flp bash --login
+# 
+# JRUBY 9k
+cd ~/Docker/flp/docker/jflp
+docker build -t jflp .
+cd ~/Docker/flp
+docker run -it -v $PWD:/Code --rm jflp bash --login
 #
 cd /Code
 bundle install
