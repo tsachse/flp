@@ -1,0 +1,6 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="800.0" height="561.4035087719298" version="1.1"
+  xmlns="http://www.w3.org/2000/svg">
+<g style="stroke:black;"><rect x="0.0" y="210.52631578947367" width="140.35087719298244" height="140.35087719298244" rx="0" ry="0" style="stroke-width:1;fill:red;"/><text x="70.17543859649122" y="280.7017543859649" font-size="12"><tspan x="70.17543859649122" dy="0em">f3</tspan></text><rect x="140.35087719298244" y="350.8771929824561" width="126.3157894736842" height="70.17543859649122" rx="0" ry="0" style="stroke-width:1;fill:green;"/><text x="196.49122807017542" y="378.9473684210526" font-size="12"><tspan x="196.49122807017542" dy="0em">f2</tspan></text><rect x="140.35087719298244" y="210.52631578947367" width="252.6315789473684" height="140.35087719298244" rx="0" ry="0" style="stroke-width:1;fill:blue;"/><text x="266.66666666666663" y="280.7017543859649" font-size="12"><tspan x="266.66666666666663" dy="0em">f1</tspan></text><rect x="0.0" y="0.0" width="280.7017543859649" height="210.52631578947367" rx="0" ry="0" style="stroke-width:1;fill:yellow;"/><text x="140.35087719298244" y="98.24561403508771" font-size="12"><tspan x="140.35087719298244" dy="0em">f4</tspan></text></g></svg>
