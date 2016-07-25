@@ -11,6 +11,7 @@ class VariableNeighborhoodSearch
     @material_flow = material_flow
     @modifiable_params = Layout.modifiable_params
     @iter = 0
+    @best_iter = 0
   end
 
   def local_search(best, max_no_improv, neighborhood)
