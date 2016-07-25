@@ -121,10 +121,13 @@ class Layout
     v
   end
 
-  def self.initial_layout(facilties)
-    silicing_order = (0..(facilties.size-2)).to_a.shuffle
-    orientation = silicing_order.map { |v| v % 2 }
-    Layout.new(facilties, silicing_order, orientation)
+  def self.initial_layout(facilities)
+    rand(300).times { facilities = Layout.stochastic_swap(facilities) }
+    slicing_order = (0..(facilities.size-2)).to_a
+    rand(300).times { slicing_order = Layout.stochastic_swap(slicing_order) }
+    orientation = slicing_order.map { |v| v % 2 }
+    rand(300).times { orientation = Layout.stochastic_orientation_swap(orientation) }
+    Layout.new(facilities, slicing_order, orientation)
   end
 
   def self.modifiable_params
