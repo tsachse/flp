@@ -1,4 +1,5 @@
 require 'spec_helper'
+require 'json'
 
 describe Facility do
   it "new instance" do

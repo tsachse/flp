@@ -9,7 +9,7 @@ class Facility
   attr_accessor :y2
 
   # TODO: Parameter feeding spaeter entsorgen
-  def initialize(id, width, height, feeding=:w)
+  def initialize(id, width, height, feeding=:nil)
     @id = id
     @width = width
     @height = height
@@ -98,6 +98,12 @@ class Facility
     end
     
     true
+  end
+
+  def to_hash
+    hash = {} 
+    instance_variables.each {|var| hash[var.to_s.delete("@")] = instance_variable_get(var) }
+    hash
   end
   
 end
