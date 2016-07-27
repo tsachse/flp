@@ -13,7 +13,7 @@ describe VariableNeighborhoodSearch do
     @output_path_pattern = File.dirname(__FILE__) + '/output/vns_'
   end
 
-  it "new instance" do
+  it "new instance - Dijkstra (standard)" do
     material_flow = [
       [:f1, :f4, 10],
       [:f4, :f6, 20],
@@ -37,11 +37,41 @@ describe VariableNeighborhoodSearch do
     #p iter
     #p vns.best_iter
 
-    expect(initial.material_flow.costs).to be > best.material_flow.costs
+    expect(initial.material_flow.costs).to be >= best.material_flow.costs
     #p initial.material_flow.costs
     #p best.material_flow.costs
     SVGHelper.layout_to_svg_file(initial,@output_path_pattern + 'initial_layout.svg')
     SVGHelper.layout_to_svg_file(best,@output_path_pattern + 'best_layout.svg')
+  end
+
+
+  it "new instance - Floyd-Warshall" do
+    material_flow = [
+      [:f1, :f4, 10],
+      [:f4, :f6, 20],
+      [:f6, :f3, 30],
+      [:f3, :f2, 40],
+      [:f2, :f5, 50],
+      [:f5, :f0, 60]
+    ]
+
+    vns = VariableNeighborhoodSearch.new(@facilities, material_flow)
+    expect(vns.class).to eq(VariableNeighborhoodSearch)
+
+    vns.mf_klass = MaterialFlowFloyd
+
+    best = vns.search(1..5,2,2)
+    expect(best.class).to eq(Layout)
+
+    initial = vns.initial_layout
+    expect(initial.class).to eq(Layout)
+
+    iter = vns.iter
+    expect(iter).to be > 0
+
+    expect(initial.material_flow.costs).to be >= best.material_flow.costs
+    SVGHelper.layout_to_svg_file(initial,@output_path_pattern + 'initial_layout_floyd.svg')
+    SVGHelper.layout_to_svg_file(best,@output_path_pattern + 'best_layout_floyd.svg')
   end
 end
 
