@@ -46,9 +46,16 @@ class FloydWarshall
     @matrix = Matrix.rows(matrix)
   end
 
-  def dist(start,stop)
+  def shortest_distance(start,stop)
+    # TODO: Exception?
+    p "dist: #{start} #{stop}" if start == nil || stop == nil || @vertex_map[start] == nil || @vertex_map[stop] == nil
     @short[@vertex_map[start],@vertex_map[stop]]
   end
+
+  def dist(start,stop)
+    shortest_distance(start,stop)
+  end
+
  
   def self.show(matrix)
     matrix.each_slice(matrix.column_count){|e| puts e.join(" ")}
