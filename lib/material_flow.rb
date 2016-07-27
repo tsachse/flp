@@ -135,11 +135,15 @@ class MaterialFlow
 	end
       end
     end
+   
+    # Exception? "dist: f1_ f4_w"
+    # Es gibt bei der Verwendung von Floyd-Warhall ab und zu den Effekt,
+    # dass feeding == nil ist.
+    @facility_map.values.each do |f|
+      f.feeding = :e if f.feeding == nil
+    end
   end
 
-  # TODO: Exception? "dist: f1_ f4_w"
-  # Es gibt bei der Verwendung von Floyd-Warhall ab und zu den Effekt,
-  # dass feeding == nil ist.
   def calculate_costs
     @distance = 0
     @costs = 0
