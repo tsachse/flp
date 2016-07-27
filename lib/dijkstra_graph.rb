@@ -50,6 +50,11 @@ class DijkstraGraph
     end
     return path, @vertices[target].dist
   end
+
+  def shortest_distance(source, target) 
+    p, d = shortest_path(source, target)
+    d
+  end
  
   def to_s
     "#<%s vertices=%p edges=%p>" % [self.class.name, @vertices.values, @edges] 

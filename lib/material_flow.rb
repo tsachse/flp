@@ -5,7 +5,7 @@ class MaterialFlow
   attr_reader :layout_edges
   attr_reader :direct_mf_connections
   attr_reader :layout_graph
-  attr_reader :layout_path
+  # attr_reader :layout_path
   attr_reader :facility_map
   attr_reader :distance
   attr_reader :costs
@@ -30,7 +30,7 @@ class MaterialFlow
     add_direct_connections
     @direct_mf_connections.each { |edge| @layout_edges << edge }
 
-    @layout_graph = DijkstraGraph.new(@layout_edges.uniq)
+    layout_graph_instance
 
     find_feeding
     calculate_costs
@@ -46,17 +46,16 @@ class MaterialFlow
       facility_edges(f1)
       if (i + 1 < af.size)
 	f2 = af[i + 1] 
-	#direction = neighbour_direction(f1, f2)
-	#@layout_edges << connect_neigbours(f1, f2, direction)
-	#direction = neighbour_direction(f2, f1)
-	#@layout_edges << connect_neigbours(f2, f1, direction) 
-	connect_neigbours2(f1, f2)
+	connect_neigbours(f1, f2)
       end
     end
-    # @layout_graph = DijkstraGraph.new(@layout_edges)
   end
 
-  def connect_neigbours2(f_start, f_stop)
+  def layout_graph_instance
+    @layout_graph = DijkstraGraph.new(@layout_edges.uniq)
+  end
+
+  def connect_neigbours(f_start, f_stop)
     p_start = [f_start.north, f_start.west, f_start.south, f_start.east]
     p_stop  = [f_stop.north,  f_stop.west,  f_stop.south,  f_stop.east]
     dir     = [:n, :w, :s, :e]
@@ -124,7 +123,8 @@ class MaterialFlow
 	  p_stop.each_with_index do |p2, j| 
 	    v1 = "#{f_start.id.to_s}_#{p_start[i]}" 
 	    v2 = "#{f_stop.id.to_s}_#{p_stop[j]}" 
-	    path, dist = @layout_graph.shortest_path(v1, v2)
+	    # path, dist = @layout_graph.shortest_path(v1, v2)
+	    dist = @layout_graph.shortest_distance(v1, v2)
 	    if dist < min
 	      min = dist
 	      f_start.feeding = p_start[i] if p_start.size > 1
@@ -138,7 +138,6 @@ class MaterialFlow
   end
 
   def calculate_costs
-    @layout_path = []
     @distance = 0
     @costs = 0
     @ordered_material_flow.each do |e|
@@ -147,37 +146,14 @@ class MaterialFlow
       f2 = @facility_map[stop]
       start = "#{f1.id.to_s}_#{f1.feeding.to_s}"
       stop  = "#{f2.id.to_s}_#{f2.feeding.to_s}"
-      path, dist = @layout_graph.shortest_path(start, stop)
+      dist = @layout_graph.shortest_distance(start, stop)
       # p "#{start}, #{stop}, #{dist.to_s}"
       # p dist
       @distance = @distance + dist
       @costs = @costs + (dist * items)
-      @layout_path << path
     end
     @costs
   end
-
-#  def layout_distance
-#    @layout_path = []
-#    @distance = 0
-#    af = @layout.arranged_facilities
-#    af.each_with_index do |f1,i|
-#      if (i + 1 < af.size)
-#	f2 = af[i + 1] 
-#	start = "#{f1.id.to_s}_#{f1.feeding.to_s}"
-#	stop  = "#{f2.id.to_s}_#{f2.feeding.to_s}"
-#	path, dist = @layout_graph.shortest_path(start, stop)
-#	@distance = @distance + dist
-#	@layout_path << path
-#
-#	# p '---'
-#	p start, stop, dist, path
-#	# @layout_edges << connect_neigbours(f1, f2, direction)
-#      end
-#    end
-#    @layout_path = @layout_path
-#    @distance
-#  end
 
   def facility_edges(f)
     distance = f.width/2 + f.height/2
@@ -185,11 +161,6 @@ class MaterialFlow
     @layout_edges << ["#{f.id.to_s}_e", "#{f.id.to_s}_s", distance]
     @layout_edges << ["#{f.id.to_s}_s", "#{f.id.to_s}_w", distance]
     @layout_edges << ["#{f.id.to_s}_w", "#{f.id.to_s}_n", distance]
-    #
-    # @layout_edges << ["#{f.id.to_s}_n", "#{f.id.to_s}_w", distance]
-    # @layout_edges << ["#{f.id.to_s}_w", "#{f.id.to_s}_s", distance]
-    # @layout_edges << ["#{f.id.to_s}_s", "#{f.id.to_s}_e", distance]
-    # @layout_edges << ["#{f.id.to_s}_e", "#{f.id.to_s}_n", distance]
   end
 
   def neighbour_direction(f1, f2)
@@ -222,44 +193,6 @@ class MaterialFlow
     return :e if e
     return :w if w
     nil
-  end
-
-  def connect_neigbours(f1,f2,direction)
-    edge = []
-    case direction
-    when :n
-      edge << "#{f1.id.to_s}_n"
-      edge << "#{f2.id.to_s}_s"
-      edge << Facility.distance(f1.north,f2.south)
-    when :nw
-      edge << "#{f1.id.to_s}_n"
-      edge << "#{f2.id.to_s}_e"
-      edge << Facility.distance(f1.north,f2.east)
-    when :ne
-      edge << "#{f1.id.to_s}_n"
-      edge << "#{f2.id.to_s}_w"
-      edge << Facility.distance(f1.north,f2.west)
-    when :e
-      edge << "#{f1.id.to_s}_e"
-      edge << "#{f2.id.to_s}_w"
-      edge << Facility.distance(f1.east,f2.west)
-    when :w
-      edge << "#{f1.id.to_s}_w"
-      edge << "#{f2.id.to_s}_e"
-      edge << Facility.distance(f1.west,f2.east)
-    when :s
-      edge << "#{f1.id.to_s}_s"
-      edge << "#{f2.id.to_s}_n"
-      edge << Facility.distance(f1.south,f2.north)
-    when :sw
-      edge << "#{f1.id.to_s}_s"
-      edge << "#{f2.id.to_s}_e"
-      edge << Facility.distance(f1.south,f2.east)
-    when :se
-      edge << "#{f1.id.to_s}_s"
-      edge << "#{f2.id.to_s}_w"
-      edge << Facility.distance(f1.south,f2.west)
-    end
   end
 
 end
