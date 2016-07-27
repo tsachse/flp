@@ -137,6 +137,9 @@ class MaterialFlow
     end
   end
 
+  # TODO: Exception? "dist: f1_ f4_w"
+  # Es gibt bei der Verwendung von Floyd-Warhall ab und zu den Effekt,
+  # dass feeding == nil ist.
   def calculate_costs
     @distance = 0
     @costs = 0

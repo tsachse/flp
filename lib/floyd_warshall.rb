@@ -47,7 +47,7 @@ class FloydWarshall
   end
 
   def shortest_distance(start,stop)
-    # TODO: Exception?
+    # TODO: Exception? "dist: f1_ f4_w"
     p "dist: #{start} #{stop}" if start == nil || stop == nil || @vertex_map[start] == nil || @vertex_map[stop] == nil
     @short[@vertex_map[start],@vertex_map[stop]]
   end
