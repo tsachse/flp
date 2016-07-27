@@ -4,14 +4,17 @@ require File.dirname(__FILE__) + '/../lib/facility_set.rb'
 require File.dirname(__FILE__) + '/../lib/svg_helper.rb'
 require File.dirname(__FILE__) + '/../lib/dot_helper.rb'
 require File.dirname(__FILE__) + '/../lib/dijkstra_graph.rb'
+require File.dirname(__FILE__) + '/../lib/floyd_warshall.rb'
 require File.dirname(__FILE__) + '/../lib/variable_neighborhood_search.rb'
 require File.dirname(__FILE__) + '/../lib/material_flow.rb'
+require File.dirname(__FILE__) + '/../lib/material_flow_floyd.rb'
 
 require 'logger'
 require 'json'
 
 class DatasetHelper 
-  def self.run(dataset_name, facilities, material_flow, neighbours, max_no_improv, max_no_improv_ls)
+  def self.run(dataset_name, facilities, material_flow, neighbours, max_no_improv, max_no_improv_ls,
+	       mf_klass = MaterialFlow)
     fn_logfile = File.dirname(__FILE__) + '/output/dataset.log'
     output_path_pattern = File.dirname(__FILE__) + '/output/' + dataset_name + '_'
     logger = Logger.new(fn_logfile)
@@ -25,6 +28,7 @@ class DatasetHelper
 
     t1 = Time.now
     vns = VariableNeighborhoodSearch.new(facilities, material_flow)
+    vns.mf_klass = mf_klass
     best = vns.search(neighbours,max_no_improv, max_no_improv_ls)
     t2 = Time.now
     initial = vns.initial_layout
