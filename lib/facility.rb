@@ -36,6 +36,10 @@ class Facility
     [@x2, (@y1 + (@height/2))]
   end
 
+  def center
+    [(@x1 + (@width/2)),(@y1 + (@height/2))]
+  end
+
   def self.distance(f1, f2)
     x1,y1 = f1
     x2,y2 = f2

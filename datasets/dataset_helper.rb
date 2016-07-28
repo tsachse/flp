@@ -8,6 +8,7 @@ require File.dirname(__FILE__) + '/../lib/floyd_warshall.rb'
 require File.dirname(__FILE__) + '/../lib/variable_neighborhood_search.rb'
 require File.dirname(__FILE__) + '/../lib/material_flow.rb'
 require File.dirname(__FILE__) + '/../lib/material_flow_floyd.rb'
+require File.dirname(__FILE__) + '/../lib/material_flow_simple.rb'
 
 require 'logger'
 require 'json'
@@ -62,6 +63,24 @@ class DatasetHelper
     s['best_costs'] = best.material_flow.costs
     s['best_distance'] = best.material_flow.distance;
     logger.info(JSON.generate(s));
+
+    if mf_klass == MaterialFlowSimple
+      s['dataset'] = dataset_name + '+'
+
+      mfi = MaterialFlow.new(vns.initial_layout, material_flow)
+      logger.debug('initial.material_flow.costs+: ' + mfi.costs.inspect.to_s)
+      logger.debug('initial.material_flow.distance+: ' + mfi.distance.inspect.to_s)
+      s['initial_costs'] = mfi.costs
+      s['initial_distance'] = mfi.distance
+
+      mfb = MaterialFlow.new(vns.best_layout, material_flow)
+      logger.debug('best.material_flow.costs+: ' + mfb.costs.inspect.to_s)
+      logger.debug('best.material_flow.distance+: ' + mfb.distance.inspect.to_s)
+      s['best_costs'] = mfb.costs
+      s['best_distance'] = mfb.distance
+      logger.info(JSON.generate(s));
+    end
+
     logger.debug("Stop  " +  dataset_name + " ****************************")
     SVGHelper.layout_to_svg_file(initial,output_path_pattern + 'initial_layout.svg')
     SVGHelper.layout_to_svg_file(best,output_path_pattern + 'best_layout.svg')
