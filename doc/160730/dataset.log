@@ -7928,3 +7928,26 @@ D, [2016-07-30T14:40:05.449747 #334] DEBUG -- : material_flow: [[:f1, :f2, 50], 
 D, [2016-07-30T14:40:05.449765 #334] DEBUG -- : neighbours: 1..17
 D, [2016-07-30T14:40:05.449780 #334] DEBUG -- : max_no_improv: 100
 D, [2016-07-30T14:40:05.449805 #334] DEBUG -- : max_no_improv_ls: 30
+D, [2016-07-30T14:42:18.904162 #334] DEBUG -- : initial.material_flow.facility_map: [{"id":"f3","width":12,"height":10,"x1":0,"y1":0,"x2":12,"y2":10,"feeding":"e"},{"id":"f5","width":8,"height":8,"x1":12,"y1":0,"x2":20,"y2":8,"feeding":"n"},{"id":"f4","width":12,"height":8,"x1":20,"y1":0,"x2":32,"y2":8,"feeding":"w"},{"id":"f2","width":20,"height":15,"x1":32,"y1":8,"x2":52,"y2":23,"feeding":"n"},{"id":"f1","width":10,"height":8,"x1":32,"y1":0,"x2":42,"y2":8,"feeding":"e"},{"id":"f6","width":9,"height":6,"x1":62,"y1":0,"x2":71,"y2":6,"feeding":"w"}]
+D, [2016-07-30T14:42:18.904419 #334] DEBUG -- : initial.facilities: [{"id":"f3","width":12,"height":10,"x1":0,"y1":0,"x2":12,"y2":10,"feeding":"nil"},{"id":"f5","width":8,"height":8,"x1":0,"y1":0,"x2":8,"y2":8,"feeding":"nil"},{"id":"f4","width":12,"height":8,"x1":0,"y1":0,"x2":12,"y2":8,"feeding":"nil"},{"id":"f2","width":20,"height":15,"x1":0,"y1":0,"x2":20,"y2":15,"feeding":"nil"},{"id":"f1","width":10,"height":8,"x1":0,"y1":0,"x2":10,"y2":8,"feeding":"nil"},{"id":"f6","width":9,"height":6,"x1":0,"y1":0,"x2":9,"y2":6,"feeding":"nil"}]
+D, [2016-07-30T14:42:18.904449 #334] DEBUG -- : initial.silicing_order: [0, 1, 2, 4, 3]
+D, [2016-07-30T14:42:18.904469 #334] DEBUG -- : initial.orientation: [1, 1, 1, 1, 0]
+D, [2016-07-30T14:42:18.904615 #334] DEBUG -- : best.material_flow.facility_map: [{"id":"f2","width":20,"height":15,"x1":0,"y1":0,"x2":20,"y2":15,"feeding":"e"},{"id":"f1","width":10,"height":8,"x1":20,"y1":0,"x2":30,"y2":8,"feeding":"w"},{"id":"f5","width":8,"height":8,"x1":30,"y1":24,"x2":38,"y2":32,"feeding":"w"},{"id":"f6","width":9,"height":6,"x1":30,"y1":18,"x2":39,"y2":24,"feeding":"w"},{"id":"f4","width":12,"height":8,"x1":30,"y1":10,"x2":42,"y2":18,"feeding":"n"},{"id":"f3","width":12,"height":10,"x1":30,"y1":0,"x2":42,"y2":10,"feeding":"s"}]
+D, [2016-07-30T14:42:18.904773 #334] DEBUG -- : best.facilities: [{"id":"f2","width":20,"height":15,"x1":0,"y1":0,"x2":20,"y2":15,"feeding":"nil"},{"id":"f1","width":10,"height":8,"x1":0,"y1":0,"x2":10,"y2":8,"feeding":"nil"},{"id":"f5","width":8,"height":8,"x1":0,"y1":0,"x2":8,"y2":8,"feeding":"nil"},{"id":"f6","width":9,"height":6,"x1":0,"y1":0,"x2":9,"y2":6,"feeding":"nil"},{"id":"f4","width":12,"height":8,"x1":0,"y1":0,"x2":12,"y2":8,"feeding":"nil"},{"id":"f3","width":12,"height":10,"x1":0,"y1":0,"x2":12,"y2":10,"feeding":"nil"}]
+D, [2016-07-30T14:42:18.904807 #334] DEBUG -- : best.silicing_order: [0, 1, 2, 4, 3]
+D, [2016-07-30T14:42:18.904825 #334] DEBUG -- : best.orientation: [1, 1, 0, 0, 0]
+D, [2016-07-30T14:42:18.904840 #334] DEBUG -- : vns.iter: 138
+D, [2016-07-30T14:42:18.904856 #334] DEBUG -- : vns.best_iter: 36
+D, [2016-07-30T14:42:18.904877 #334] DEBUG -- : initial.material_flow.costs: 5243.736132667052
+D, [2016-07-30T14:42:18.904894 #334] DEBUG -- : initial.material_flow.distance: 420.17858239467415
+D, [2016-07-30T14:42:18.904912 #334] DEBUG -- : best.material_flow.costs: 2223.5818617086975
+D, [2016-07-30T14:42:18.904929 #334] DEBUG -- : best.material_flow.distance: 250.04339685102138
+D, [2016-07-30T14:42:18.904948 #334] DEBUG -- : duration: 133.453965445
+I, [2016-07-30T14:42:18.904995 #334]  INFO -- : {"dataset":"skas_6","duration":133.453965445,"neighbours":"1..17","max_no_improv":100,"max_no_improv_ls":30,"iterations":"138","best_iteration":"36","initial_costs":5243.736132667052,"initial_distance":420.17858239467415,"best_costs":2223.5818617086975,"best_distance":250.04339685102138}
+D, [2016-07-30T14:42:18.905014 #334] DEBUG -- : Stop  skas_6 ****************************
+D, [2016-07-30T14:42:18.906333 #334] DEBUG -- : Start skas_6 ****************************
+D, [2016-07-30T14:42:18.906419 #334] DEBUG -- : facilities: [#<Facility:0x0055f11b942f20 @id=:f1, @width=10, @height=8, @x1=0, @y1=0, @x2=10, @y2=8, @feeding=:nil>, #<Facility:0x0055f11b942ef8 @id=:f2, @width=20, @height=15, @x1=0, @y1=0, @x2=20, @y2=15, @feeding=:nil>, #<Facility:0x0055f11b942ed0 @id=:f3, @width=12, @height=10, @x1=0, @y1=0, @x2=12, @y2=10, @feeding=:nil>, #<Facility:0x0055f11b942ea8 @id=:f4, @width=12, @height=8, @x1=0, @y1=0, @x2=12, @y2=8, @feeding=:nil>, #<Facility:0x0055f11b942e80 @id=:f5, @width=8, @height=8, @x1=0, @y1=0, @x2=8, @y2=8, @feeding=:nil>, #<Facility:0x0055f11b942e58 @id=:f6, @width=9, @height=6, @x1=0, @y1=0, @x2=9, @y2=6, @feeding=:nil>]
+D, [2016-07-30T14:42:18.906458 #334] DEBUG -- : material_flow: [[:f1, :f2, 50], [:f1, :f3, 0], [:f1, :f4, 15], [:f1, :f5, 16], [:f1, :f6, 4], [:f2, :f3, 28], [:f2, :f4, 11], [:f2, :f5, 6], [:f2, :f6, 0], [:f3, :f4, 45], [:f3, :f5, 0], [:f3, :f6, 10], [:f4, :f5, 0], [:f4, :f6, 15], [:f5, :f6, 12]]
+D, [2016-07-30T14:42:18.906476 #334] DEBUG -- : neighbours: 1..17
+D, [2016-07-30T14:42:18.906492 #334] DEBUG -- : max_no_improv: 100
+D, [2016-07-30T14:42:18.906524 #334] DEBUG -- : max_no_improv_ls: 30
