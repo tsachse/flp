@@ -54,8 +54,10 @@ describe MaterialFlowSimple do
     orientation =   [0, 1, 0]
     layout = Layout.new(facilities,silicing_order,orientation)
     mf = MaterialFlowSimple.new(layout, material_flow)
-    expect(mf.distance.round).to  eq(84)
-    expect(mf.costs.round).to  eq(1828)
+    expect(mf.distance.round).to  eq(34)
+    # expect(mf.distance.round).to  eq(84)
+    expect(mf.costs.round).to  eq(704)
+    # expect(mf.costs.round).to  eq(1828)
   end
 
 end

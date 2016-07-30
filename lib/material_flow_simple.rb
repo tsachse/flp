@@ -24,10 +24,48 @@ class MaterialFlowSimple
       f.feeding = nil # Aufgabepunkte sollen neu berechnet werden
     end
 
+    @feeding_map = {
+      :n => :north,
+      :w => :west,
+      :s => :south,
+      :e => :east,
+    }
+
+    find_feeding 
     calculate_costs
 
     @layout.material_flow = self
 
+  end
+
+  def find_feeding
+    @ordered_material_flow.each do |e|
+      start, stop, items = e
+      f_start = @facility_map[start]
+      f_stop = @facility_map[stop]
+      p_start = p_stop = [:n, :w, :s, :e]
+      p_start = [f_start.feeding] if f_start.feeding != nil
+      p_stop  = [f_stop.feeding]  if f_stop.feeding != nil
+      if p_start.size > 1 || p_stop.size > 1
+	min = Float::INFINITY
+	p_start.each_with_index do |p1, i|
+	  p_stop.each_with_index do |p2, j| 
+	    v1 = f_start.send @feeding_map[p_start[i]]
+	    v2 = f_stop.send @feeding_map[p_stop[j]]
+	    dist = Facility.distance(v1,v2) 
+	    if dist < min
+	      min = dist
+	      f_start.feeding = p_start[i] if p_start.size > 1
+	      f_stop.feeding = p_stop[j] if p_stop.size > 1
+	      # p "#{f_start.id} #{f_start.feeding}, #{f_stop.id} #{f_stop.feeding}, #{dist.to_s}" 
+	    end
+	  end
+	 end
+	end
+     end
+     @facility_map.values.each do |f| 
+       f.feeding = :e if f.feeding == nil
+     end
   end
 
   def calculate_costs
@@ -37,7 +75,9 @@ class MaterialFlowSimple
       start, stop, items = e
       f1 = @facility_map[start]
       f2 = @facility_map[stop]
-      dist = Facility.distance(f1.center,f2.center)
+      v1 = f1.send @feeding_map[f1.feeding]
+      v2 = f2.send @feeding_map[f2.feeding]
+      dist = Facility.distance(v1,v2)
       # p "#{start}, #{stop}, #{dist.to_s}"
       # p dist
       @distance = @distance + dist
