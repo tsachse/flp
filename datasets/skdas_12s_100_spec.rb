@@ -37,9 +37,9 @@ describe VariableNeighborhoodSearch do
       [:f10, :f11, 17], [:f10, :f12, 31], [:f11, :f12, 19],
     ]
 
-    neighbours = 1..5
-    max_no_improv = 50
-    max_no_improv_ls = 20
+    neighbours = 1..23
+    max_no_improv = 200
+    max_no_improv_ls = 50
 
     100.times do
       vns = DatasetHelper.run('skas_12s',facilities, material_flow, neighbours, 
