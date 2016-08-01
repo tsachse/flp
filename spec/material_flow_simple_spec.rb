@@ -58,6 +58,8 @@ describe MaterialFlowSimple do
     # expect(mf.distance.round).to  eq(84)
     expect(mf.costs.round).to  eq(704)
     # expect(mf.costs.round).to  eq(1828)
+    j = JSON.generate(mf.facility_map.values.map { |e| e.to_hash })
+    img = SVGHelper.json_to_svg_file(j,@output_path_pattern + '4_facilities.svg')
   end
 
 end
