@@ -48,7 +48,7 @@ class SVGHelper
     end
     r = 800.0 / width 
     feeding_size = width / 50.0 
-    p feeding_size
+    # p feeding_size
     facilities.each do |f|
       case f['feeding']
       when 'n'
@@ -64,7 +64,7 @@ class SVGHelper
 	f['xf'] = f['x2'] - feeding_size
 	f['yf'] = (f['y1'] + (f['height']/2)) 
       end 
-      p "#{f['id']} #{f['feeding']} #{f['xf']} #{f['yf']}"
+      # p "#{f['id']} #{f['feeding']} #{f['xf']} #{f['yf']}"
     end
     img = Rasem::SVGImage.new(width * r ,height * r) do 
       group :stroke=>"black" do
