@@ -1,5 +1,5 @@
 require 'rasem'
-require 'layout'
+# require 'layout'
 
 class SVGHelper
   def self.layout_to_svg(layout)

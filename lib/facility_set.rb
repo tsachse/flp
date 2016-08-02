@@ -1,4 +1,4 @@
-require 'facility'
+# require 'facility'
 
 class FacilitySet
   attr_reader :facilities
