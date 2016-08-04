@@ -16,7 +16,7 @@ require 'json'
 class DatasetHelper 
   def self.run(dataset_name, facilities, material_flow, neighbours, max_no_improv, max_no_improv_ls,
 	       mf_klass = MaterialFlow)
-    fn_logfile = File.dirname(__FILE__) + '/output/dataset.log'
+    fn_logfile = File.dirname(__FILE__) + '/output/dataset_' + dataset_name + '.log'
     output_path_pattern = File.dirname(__FILE__) + '/output/' + dataset_name + '_'
     logger = Logger.new(fn_logfile)
 
