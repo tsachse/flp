@@ -1,3 +1,4 @@
+#  R --save < skas4_costs_boxplot.R
 skas4 <- read.csv('dataset_skas_4.log.csv')
 skas4f <- read.csv('dataset_skas_4f.log.csv')
 skas4s <- read.csv('dataset_skas_4s.log.csv')
