@@ -4,9 +4,9 @@ floyd <- read.csv('dataset_skas_4f.log.csv')
 simple <- read.csv('dataset_skas_4s.log.csv')
 p <- simple[,"dataset"]=="skas_4s+"
 simple_plus <- simple[p,]
-boxplot(dijkstra$best_costs,
-	floyd$best_costs,
-	simple_plus$best_costs,
-	main="Boxplot der Kosten",
-	ylab="Kosten",
-	xlab="Variante",names=c("Dijkstra","Floyd","Simple"))
+boxplot(dijkstra$duration,
+        floyd$duration,
+        simple_plus$duration,
+        main="Boxplot der Rechenzeit",
+        ylab="Sekunden",
+        xlab="Variante",names=c("Dijkstra","Floyd","Simple"))
