@@ -17,4 +17,3 @@ boxplot(dijkstra$best_costs,
         main="Kosten",
         ylab="Kosten",
         xlab="Variante",names=c("Dijkstra","Floyd","Simple"))
-
