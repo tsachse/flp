@@ -33,7 +33,8 @@ class SVGHelper
   end
 
   def self.json_to_svg(json_facilities)
-    colors = ['red','green','blue','yellow','brown','pink','cyan','gray']
+    colors = ['red','green','blue','yellow','brown','pink','cyan',
+    'cornsilk', 'darkgreen', 'bisque', 'aqua', 'darkred', 'darkgoldenrod']
     i = 0
     feeding_size = 3
     facilities = JSON.parse(json_facilities)
@@ -46,7 +47,8 @@ class SVGHelper
 	height = f['y2']
       end
     end
-    r = 800.0 / width 
+    r = 480.0 / width 
+    r = 640.0 / height if height > width
     feeding_size = width / 50.0 
     # p feeding_size
     facilities.each do |f|
