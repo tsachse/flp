@@ -75,7 +75,8 @@ class SVGHelper
 	    f['y1'] * r, 
 	    f['width'] * r, 
 	    f['height'] * r, 
-	    :stroke_width=>1, :fill=>colors[i%colors.size]
+	    :stroke_width=>1, :fill=>"lightgray"
+	    # :stroke_width=>1, :fill=>colors[i%colors.size]
 	  rectangle f['xf'] * r, 
 	    f['yf'] * r, 
 	    feeding_size * r, 
