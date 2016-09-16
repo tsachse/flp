@@ -1,9 +1,10 @@
-#  R --save < skas4_costs_boxplot.R
+#  R --save < skas4_boxplot.R
 dijkstra <- read.csv('dataset_skas_4.log.csv')
 floyd <- read.csv('dataset_skas_4f.log.csv')
 simple <- read.csv('dataset_skas_4s.log.csv')
 p <- simple[,"dataset"]=="skas_4s+"
 simple_plus <- simple[p,]
+png(filename="dataset_skas_4_boxplot.png")
 par(mfcol=c(1,2))
 boxplot(dijkstra$duration,
         floyd$duration,
@@ -17,4 +18,5 @@ boxplot(dijkstra$best_costs,
         main="Kosten",
         ylab="Kosten",
         xlab="Variante",names=c("Dijkstra","Floyd","Simple"))
+dev.off()
 

@@ -1,4 +1,4 @@
-#  R --save < skas12_costs_boxplot.R
+#  R --save < skas12_boxplot.R
 dijkstra <- read.csv('dataset_skas_12.log.csv')
 floyd <- read.csv('dataset_skas_12f.log.csv')
 simple <- read.csv('dataset_skas_12s.log.csv')
