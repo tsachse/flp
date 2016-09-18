@@ -1,0 +1,139 @@
+# Logfile created on 2016-09-18 18:03:30 +0200 by logger.rb/54072
+D, [2016-09-18T18:03:30.479610 #1959] DEBUG -- : Start skas_4t ****************************
+D, [2016-09-18T18:03:30.479797 #1959] DEBUG -- : facilities: [#<Facility:0x007fe2ac538950 @id=:f1, @width=18, @height=10, @x1=0, @y1=0, @x2=18, @y2=10, @feeding=:nil>, #<Facility:0x007fe2ac538900 @id=:f2, @width=9, @height=5, @x1=0, @y1=0, @x2=9, @y2=5, @feeding=:nil>, #<Facility:0x007fe2ac5388d8 @id=:f3, @width=10, @height=10, @x1=0, @y1=0, @x2=10, @y2=10, @feeding=:nil>, #<Facility:0x007fe2ac5388b0 @id=:f4, @width=20, @height=15, @x1=0, @y1=0, @x2=20, @y2=15, @feeding=:nil>]
+D, [2016-09-18T18:03:30.479853 #1959] DEBUG -- : material_flow: [[:f1, :f2, 20], [:f1, :f3, 30], [:f1, :f4, 15], [:f2, :f3, 5], [:f2, :f4, 38], [:f3, :f4, 12]]
+D, [2016-09-18T18:03:30.479897 #1959] DEBUG -- : neighbours: 1..5
+D, [2016-09-18T18:03:30.479930 #1959] DEBUG -- : max_duration: 10
+D, [2016-09-18T18:03:30.479962 #1959] DEBUG -- : max_duration_ls: 1
+D, [2016-09-18T18:03:41.650589 #1959] DEBUG -- : initial.material_flow.facility_map: [{"id":"f4","width":20,"height":15,"x1":0,"y1":25,"x2":20,"y2":40,"feeding":"w"},{"id":"f1","width":18,"height":10,"x1":0,"y1":15,"x2":18,"y2":25,"feeding":"n"},{"id":"f3","width":10,"height":10,"x1":0,"y1":5,"x2":10,"y2":15,"feeding":"s"},{"id":"f2","width":9,"height":5,"x1":0,"y1":0,"x2":9,"y2":5,"feeding":"w"}]
+D, [2016-09-18T18:03:41.650854 #1959] DEBUG -- : initial.facilities: [{"id":"f4","width":20,"height":15,"x1":0,"y1":0,"x2":20,"y2":15,"feeding":"nil"},{"id":"f1","width":18,"height":10,"x1":0,"y1":0,"x2":18,"y2":10,"feeding":"nil"},{"id":"f3","width":10,"height":10,"x1":0,"y1":0,"x2":10,"y2":10,"feeding":"nil"},{"id":"f2","width":9,"height":5,"x1":0,"y1":0,"x2":9,"y2":5,"feeding":"nil"}]
+D, [2016-09-18T18:03:41.650901 #1959] DEBUG -- : initial.silicing_order: [1, 2, 0]
+D, [2016-09-18T18:03:41.650939 #1959] DEBUG -- : initial.orientation: [0, 0, 0]
+D, [2016-09-18T18:03:41.651145 #1959] DEBUG -- : best.material_flow.facility_map: [{"id":"f3","width":10,"height":10,"x1":0,"y1":20,"x2":10,"y2":30,"feeding":"e"},{"id":"f1","width":18,"height":10,"x1":10,"y1":20,"x2":28,"y2":30,"feeding":"w"},{"id":"f2","width":9,"height":5,"x1":0,"y1":15,"x2":9,"y2":20,"feeding":"e"},{"id":"f4","width":20,"height":15,"x1":0,"y1":0,"x2":20,"y2":15,"feeding":"s"}]
+D, [2016-09-18T18:03:41.651313 #1959] DEBUG -- : best.facilities: [{"id":"f3","width":10,"height":10,"x1":0,"y1":0,"x2":10,"y2":10,"feeding":"nil"},{"id":"f1","width":18,"height":10,"x1":0,"y1":0,"x2":18,"y2":10,"feeding":"nil"},{"id":"f2","width":9,"height":5,"x1":0,"y1":0,"x2":9,"y2":5,"feeding":"nil"},{"id":"f4","width":20,"height":15,"x1":0,"y1":0,"x2":20,"y2":15,"feeding":"nil"}]
+D, [2016-09-18T18:03:41.651354 #1959] DEBUG -- : best.silicing_order: [1, 2, 0]
+D, [2016-09-18T18:03:41.651391 #1959] DEBUG -- : best.orientation: [0, 0, 1]
+D, [2016-09-18T18:03:41.651424 #1959] DEBUG -- : vns.iter: 11
+D, [2016-09-18T18:03:41.651459 #1959] DEBUG -- : vns.best_iter: 9
+D, [2016-09-18T18:03:41.651505 #1959] DEBUG -- : initial.material_flow.costs: 2540.0
+D, [2016-09-18T18:03:41.651542 #1959] DEBUG -- : initial.material_flow.distance: 130.0
+D, [2016-09-18T18:03:41.651586 #1959] DEBUG -- : best.material_flow.costs: 556.5270268524557
+D, [2016-09-18T18:03:41.651625 #1959] DEBUG -- : best.material_flow.distance: 38.360583474096885
+D, [2016-09-18T18:03:41.651663 #1959] DEBUG -- : duration: 11.170402
+I, [2016-09-18T18:03:41.651749 #1959]  INFO -- : {"dataset":"skas_4t","duration":11.170402,"neighbours":"1..5","max_duration":10,"max_duration_ls":1,"iterations":"11","best_iteration":"9","initial_costs":2540.0,"initial_distance":130.0,"best_costs":556.5270268524557,"best_distance":38.360583474096885}
+D, [2016-09-18T18:03:41.651821 #1959] DEBUG -- : Stop  skas_4t ****************************
+D, [2016-09-18T18:05:33.716986 #1961] DEBUG -- : Start skas_4t ****************************
+D, [2016-09-18T18:05:33.717190 #1961] DEBUG -- : facilities: [#<Facility:0x007f90e248eb10 @id=:f1, @width=18, @height=10, @x1=0, @y1=0, @x2=18, @y2=10, @feeding=:nil>, #<Facility:0x007f90e248eac0 @id=:f2, @width=9, @height=5, @x1=0, @y1=0, @x2=9, @y2=5, @feeding=:nil>, #<Facility:0x007f90e248ea98 @id=:f3, @width=10, @height=10, @x1=0, @y1=0, @x2=10, @y2=10, @feeding=:nil>, #<Facility:0x007f90e248ea70 @id=:f4, @width=20, @height=15, @x1=0, @y1=0, @x2=20, @y2=15, @feeding=:nil>]
+D, [2016-09-18T18:05:33.717277 #1961] DEBUG -- : material_flow: [[:f1, :f2, 20], [:f1, :f3, 30], [:f1, :f4, 15], [:f2, :f3, 5], [:f2, :f4, 38], [:f3, :f4, 12]]
+D, [2016-09-18T18:05:33.717322 #1961] DEBUG -- : neighbours: 1..5
+D, [2016-09-18T18:05:33.717355 #1961] DEBUG -- : max_duration: 10
+D, [2016-09-18T18:05:33.717388 #1961] DEBUG -- : max_duration_ls: 1
+D, [2016-09-18T18:05:44.879073 #1961] DEBUG -- : initial.material_flow.facility_map: [{"id":"f3","width":10,"height":10,"x1":0,"y1":30,"x2":10,"y2":40,"feeding":"n"},{"id":"f1","width":18,"height":10,"x1":0,"y1":15,"x2":18,"y2":25,"feeding":"s"},{"id":"f2","width":9,"height":5,"x1":18,"y1":15,"x2":27,"y2":20,"feeding":"n"},{"id":"f4","width":20,"height":15,"x1":0,"y1":0,"x2":20,"y2":15,"feeding":"e"}]
+D, [2016-09-18T18:05:44.879344 #1961] DEBUG -- : initial.facilities: [{"id":"f3","width":10,"height":10,"x1":0,"y1":0,"x2":10,"y2":10,"feeding":"nil"},{"id":"f1","width":18,"height":10,"x1":0,"y1":0,"x2":18,"y2":10,"feeding":"nil"},{"id":"f2","width":9,"height":5,"x1":0,"y1":0,"x2":9,"y2":5,"feeding":"nil"},{"id":"f4","width":20,"height":15,"x1":0,"y1":0,"x2":20,"y2":15,"feeding":"nil"}]
+D, [2016-09-18T18:05:44.879391 #1961] DEBUG -- : initial.silicing_order: [2, 0, 1]
+D, [2016-09-18T18:05:44.879430 #1961] DEBUG -- : initial.orientation: [0, 0, 1]
+D, [2016-09-18T18:05:44.879629 #1961] DEBUG -- : best.material_flow.facility_map: [{"id":"f3","width":10,"height":10,"x1":0,"y1":20,"x2":10,"y2":30,"feeding":"e"},{"id":"f1","width":18,"height":10,"x1":10,"y1":20,"x2":28,"y2":30,"feeding":"w"},{"id":"f2","width":9,"height":5,"x1":0,"y1":15,"x2":9,"y2":20,"feeding":"e"},{"id":"f4","width":20,"height":15,"x1":0,"y1":0,"x2":20,"y2":15,"feeding":"s"}]
+D, [2016-09-18T18:05:44.879819 #1961] DEBUG -- : best.facilities: [{"id":"f3","width":10,"height":10,"x1":0,"y1":0,"x2":10,"y2":10,"feeding":"nil"},{"id":"f1","width":18,"height":10,"x1":0,"y1":0,"x2":18,"y2":10,"feeding":"nil"},{"id":"f2","width":9,"height":5,"x1":0,"y1":0,"x2":9,"y2":5,"feeding":"nil"},{"id":"f4","width":20,"height":15,"x1":0,"y1":0,"x2":20,"y2":15,"feeding":"nil"}]
+D, [2016-09-18T18:05:44.879860 #1961] DEBUG -- : best.silicing_order: [1, 2, 0]
+D, [2016-09-18T18:05:44.879897 #1961] DEBUG -- : best.orientation: [0, 0, 1]
+D, [2016-09-18T18:05:44.879932 #1961] DEBUG -- : vns.iter: 11
+D, [2016-09-18T18:05:44.879966 #1961] DEBUG -- : vns.best_iter: 1
+D, [2016-09-18T18:05:44.880020 #1961] DEBUG -- : initial.material_flow.costs: 2032.9505704896399
+D, [2016-09-18T18:05:44.880059 #1961] DEBUG -- : initial.material_flow.distance: 135.94800646600453
+D, [2016-09-18T18:05:44.880096 #1961] DEBUG -- : best.material_flow.costs: 556.5270268524557
+D, [2016-09-18T18:05:44.880133 #1961] DEBUG -- : best.material_flow.distance: 38.360583474096885
+D, [2016-09-18T18:05:44.880172 #1961] DEBUG -- : duration: 11.161463
+I, [2016-09-18T18:05:44.880260 #1961]  INFO -- : {"dataset":"skas_4t","duration":11.161463,"neighbours":"1..5","max_duration":10,"max_duration_ls":1,"iterations":"11","best_iteration":"1","initial_costs":2032.9505704896399,"initial_distance":135.94800646600453,"best_costs":556.5270268524557,"best_distance":38.360583474096885}
+D, [2016-09-18T18:05:44.880299 #1961] DEBUG -- : Stop  skas_4t ****************************
+D, [2016-09-18T18:05:55.498254 #1962] DEBUG -- : Start skas_4t ****************************
+D, [2016-09-18T18:05:55.498448 #1962] DEBUG -- : facilities: [#<Facility:0x007fa293646a08 @id=:f1, @width=18, @height=10, @x1=0, @y1=0, @x2=18, @y2=10, @feeding=:nil>, #<Facility:0x007fa2936469e0 @id=:f2, @width=9, @height=5, @x1=0, @y1=0, @x2=9, @y2=5, @feeding=:nil>, #<Facility:0x007fa2936469b8 @id=:f3, @width=10, @height=10, @x1=0, @y1=0, @x2=10, @y2=10, @feeding=:nil>, #<Facility:0x007fa293646990 @id=:f4, @width=20, @height=15, @x1=0, @y1=0, @x2=20, @y2=15, @feeding=:nil>]
+D, [2016-09-18T18:05:55.498540 #1962] DEBUG -- : material_flow: [[:f1, :f2, 20], [:f1, :f3, 30], [:f1, :f4, 15], [:f2, :f3, 5], [:f2, :f4, 38], [:f3, :f4, 12]]
+D, [2016-09-18T18:05:55.498586 #1962] DEBUG -- : neighbours: 1..5
+D, [2016-09-18T18:05:55.498620 #1962] DEBUG -- : max_duration: 10
+D, [2016-09-18T18:05:55.498653 #1962] DEBUG -- : max_duration_ls: 1
+D, [2016-09-18T18:06:06.684485 #1962] DEBUG -- : initial.material_flow.facility_map: [{"id":"f3","width":10,"height":10,"x1":0,"y1":25,"x2":10,"y2":35,"feeding":"n"},{"id":"f2","width":9,"height":5,"x1":10,"y1":25,"x2":19,"y2":30,"feeding":"n"},{"id":"f4","width":20,"height":15,"x1":0,"y1":0,"x2":20,"y2":15,"feeding":"s"},{"id":"f1","width":18,"height":10,"x1":20,"y1":0,"x2":38,"y2":10,"feeding":"s"}]
+D, [2016-09-18T18:06:06.684745 #1962] DEBUG -- : initial.facilities: [{"id":"f3","width":10,"height":10,"x1":0,"y1":0,"x2":10,"y2":10,"feeding":"nil"},{"id":"f2","width":9,"height":5,"x1":0,"y1":0,"x2":9,"y2":5,"feeding":"nil"},{"id":"f4","width":20,"height":15,"x1":0,"y1":0,"x2":20,"y2":15,"feeding":"nil"},{"id":"f1","width":18,"height":10,"x1":0,"y1":0,"x2":18,"y2":10,"feeding":"nil"}]
+D, [2016-09-18T18:06:06.684791 #1962] DEBUG -- : initial.silicing_order: [1, 0, 2]
+D, [2016-09-18T18:06:06.684831 #1962] DEBUG -- : initial.orientation: [0, 1, 1]
+D, [2016-09-18T18:06:06.685021 #1962] DEBUG -- : best.material_flow.facility_map: [{"id":"f3","width":10,"height":10,"x1":0,"y1":15,"x2":10,"y2":25,"feeding":"e"},{"id":"f2","width":9,"height":5,"x1":10,"y1":15,"x2":19,"y2":20,"feeding":"w"},{"id":"f1","width":18,"height":10,"x1":19,"y1":15,"x2":37,"y2":25,"feeding":"w"},{"id":"f4","width":20,"height":15,"x1":0,"y1":0,"x2":20,"y2":15,"feeding":"s"}]
+D, [2016-09-18T18:06:06.685190 #1962] DEBUG -- : best.facilities: [{"id":"f3","width":10,"height":10,"x1":0,"y1":0,"x2":10,"y2":10,"feeding":"nil"},{"id":"f2","width":9,"height":5,"x1":0,"y1":0,"x2":9,"y2":5,"feeding":"nil"},{"id":"f1","width":18,"height":10,"x1":0,"y1":0,"x2":18,"y2":10,"feeding":"nil"},{"id":"f4","width":20,"height":15,"x1":0,"y1":0,"x2":20,"y2":15,"feeding":"nil"}]
+D, [2016-09-18T18:06:06.685232 #1962] DEBUG -- : best.silicing_order: [2, 1, 0]
+D, [2016-09-18T18:06:06.685271 #1962] DEBUG -- : best.orientation: [0, 1, 1]
+D, [2016-09-18T18:06:06.685346 #1962] DEBUG -- : vns.iter: 11
+D, [2016-09-18T18:06:06.685381 #1962] DEBUG -- : vns.best_iter: 3
+D, [2016-09-18T18:06:06.685436 #1962] DEBUG -- : initial.material_flow.costs: 2341.5119703372143
+D, [2016-09-18T18:06:06.685477 #1962] DEBUG -- : initial.material_flow.distance: 112.44934938339964
+D, [2016-09-18T18:06:06.685514 #1962] DEBUG -- : best.material_flow.costs: 836.0
+D, [2016-09-18T18:06:06.685551 #1962] DEBUG -- : best.material_flow.distance: 43.0
+D, [2016-09-18T18:06:06.685589 #1962] DEBUG -- : duration: 11.185605
+I, [2016-09-18T18:06:06.685676 #1962]  INFO -- : {"dataset":"skas_4t","duration":11.185605,"neighbours":"1..5","max_duration":10,"max_duration_ls":1,"iterations":"11","best_iteration":"3","initial_costs":2341.5119703372143,"initial_distance":112.44934938339964,"best_costs":836.0,"best_distance":43.0}
+D, [2016-09-18T18:06:06.685716 #1962] DEBUG -- : Stop  skas_4t ****************************
+D, [2016-09-18T18:06:27.156753 #1963] DEBUG -- : Start skas_4t ****************************
+D, [2016-09-18T18:06:27.156952 #1963] DEBUG -- : facilities: [#<Facility:0x007ffdf8d4ed30 @id=:f1, @width=18, @height=10, @x1=0, @y1=0, @x2=18, @y2=10, @feeding=:nil>, #<Facility:0x007ffdf8d4ed08 @id=:f2, @width=9, @height=5, @x1=0, @y1=0, @x2=9, @y2=5, @feeding=:nil>, #<Facility:0x007ffdf8d4ece0 @id=:f3, @width=10, @height=10, @x1=0, @y1=0, @x2=10, @y2=10, @feeding=:nil>, #<Facility:0x007ffdf8d4ecb8 @id=:f4, @width=20, @height=15, @x1=0, @y1=0, @x2=20, @y2=15, @feeding=:nil>]
+D, [2016-09-18T18:06:27.157009 #1963] DEBUG -- : material_flow: [[:f1, :f2, 20], [:f1, :f3, 30], [:f1, :f4, 15], [:f2, :f3, 5], [:f2, :f4, 38], [:f3, :f4, 12]]
+D, [2016-09-18T18:06:27.157058 #1963] DEBUG -- : neighbours: 1..5
+D, [2016-09-18T18:06:27.157119 #1963] DEBUG -- : max_duration: 10
+D, [2016-09-18T18:06:27.157152 #1963] DEBUG -- : max_duration_ls: 2
+D, [2016-09-18T18:06:39.275572 #1963] DEBUG -- : initial.material_flow.facility_map: [{"id":"f3","width":10,"height":10,"x1":0,"y1":30,"x2":10,"y2":40,"feeding":"n"},{"id":"f2","width":9,"height":5,"x1":0,"y1":25,"x2":9,"y2":30,"feeding":"e"},{"id":"f4","width":20,"height":15,"x1":0,"y1":10,"x2":20,"y2":25,"feeding":"s"},{"id":"f1","width":18,"height":10,"x1":0,"y1":0,"x2":18,"y2":10,"feeding":"w"}]
+D, [2016-09-18T18:06:39.275801 #1963] DEBUG -- : initial.facilities: [{"id":"f3","width":10,"height":10,"x1":0,"y1":0,"x2":10,"y2":10,"feeding":"nil"},{"id":"f2","width":9,"height":5,"x1":0,"y1":0,"x2":9,"y2":5,"feeding":"nil"},{"id":"f4","width":20,"height":15,"x1":0,"y1":0,"x2":20,"y2":15,"feeding":"nil"},{"id":"f1","width":18,"height":10,"x1":0,"y1":0,"x2":18,"y2":10,"feeding":"nil"}]
+D, [2016-09-18T18:06:39.275847 #1963] DEBUG -- : initial.silicing_order: [2, 0, 1]
+D, [2016-09-18T18:06:39.275886 #1963] DEBUG -- : initial.orientation: [0, 0, 0]
+D, [2016-09-18T18:06:39.276076 #1963] DEBUG -- : best.material_flow.facility_map: [{"id":"f3","width":10,"height":10,"x1":0,"y1":15,"x2":10,"y2":25,"feeding":"e"},{"id":"f2","width":9,"height":5,"x1":10,"y1":15,"x2":19,"y2":20,"feeding":"w"},{"id":"f1","width":18,"height":10,"x1":19,"y1":15,"x2":37,"y2":25,"feeding":"w"},{"id":"f4","width":20,"height":15,"x1":0,"y1":0,"x2":20,"y2":15,"feeding":"s"}]
+D, [2016-09-18T18:06:39.276264 #1963] DEBUG -- : best.facilities: [{"id":"f3","width":10,"height":10,"x1":0,"y1":0,"x2":10,"y2":10,"feeding":"nil"},{"id":"f2","width":9,"height":5,"x1":0,"y1":0,"x2":9,"y2":5,"feeding":"nil"},{"id":"f1","width":18,"height":10,"x1":0,"y1":0,"x2":18,"y2":10,"feeding":"nil"},{"id":"f4","width":20,"height":15,"x1":0,"y1":0,"x2":20,"y2":15,"feeding":"nil"}]
+D, [2016-09-18T18:06:39.276304 #1963] DEBUG -- : best.silicing_order: [2, 0, 1]
+D, [2016-09-18T18:06:39.276341 #1963] DEBUG -- : best.orientation: [0, 1, 1]
+D, [2016-09-18T18:06:39.276374 #1963] DEBUG -- : vns.iter: 6
+D, [2016-09-18T18:06:39.276408 #1963] DEBUG -- : vns.best_iter: 3
+D, [2016-09-18T18:06:39.276462 #1963] DEBUG -- : initial.material_flow.costs: 2160.524758424985
+D, [2016-09-18T18:06:39.276501 #1963] DEBUG -- : initial.material_flow.distance: 107.70820393249936
+D, [2016-09-18T18:06:39.276536 #1963] DEBUG -- : best.material_flow.costs: 836.0
+D, [2016-09-18T18:06:39.276571 #1963] DEBUG -- : best.material_flow.distance: 43.0
+D, [2016-09-18T18:06:39.276609 #1963] DEBUG -- : duration: 12.118127
+I, [2016-09-18T18:06:39.276696 #1963]  INFO -- : {"dataset":"skas_4t","duration":12.118127,"neighbours":"1..5","max_duration":10,"max_duration_ls":2,"iterations":"6","best_iteration":"3","initial_costs":2160.524758424985,"initial_distance":107.70820393249936,"best_costs":836.0,"best_distance":43.0}
+D, [2016-09-18T18:06:39.276735 #1963] DEBUG -- : Stop  skas_4t ****************************
+D, [2016-09-18T18:06:57.144884 #1964] DEBUG -- : Start skas_4t ****************************
+D, [2016-09-18T18:06:57.145084 #1964] DEBUG -- : facilities: [#<Facility:0x007f95c24f6d20 @id=:f1, @width=18, @height=10, @x1=0, @y1=0, @x2=18, @y2=10, @feeding=:nil>, #<Facility:0x007f95c24f6cf8 @id=:f2, @width=9, @height=5, @x1=0, @y1=0, @x2=9, @y2=5, @feeding=:nil>, #<Facility:0x007f95c24f6cd0 @id=:f3, @width=10, @height=10, @x1=0, @y1=0, @x2=10, @y2=10, @feeding=:nil>, #<Facility:0x007f95c24f6ca8 @id=:f4, @width=20, @height=15, @x1=0, @y1=0, @x2=20, @y2=15, @feeding=:nil>]
+D, [2016-09-18T18:06:57.145142 #1964] DEBUG -- : material_flow: [[:f1, :f2, 20], [:f1, :f3, 30], [:f1, :f4, 15], [:f2, :f3, 5], [:f2, :f4, 38], [:f3, :f4, 12]]
+D, [2016-09-18T18:06:57.145186 #1964] DEBUG -- : neighbours: 1..5
+D, [2016-09-18T18:06:57.145220 #1964] DEBUG -- : max_duration: 20
+D, [2016-09-18T18:06:57.145253 #1964] DEBUG -- : max_duration_ls: 2
+D, [2016-09-18T18:07:19.312727 #1964] DEBUG -- : initial.material_flow.facility_map: [{"id":"f2","width":9,"height":5,"x1":0,"y1":20,"x2":9,"y2":25,"feeding":"e"},{"id":"f1","width":18,"height":10,"x1":0,"y1":10,"x2":18,"y2":20,"feeding":"n"},{"id":"f3","width":10,"height":10,"x1":0,"y1":0,"x2":10,"y2":10,"feeding":"s"},{"id":"f4","width":20,"height":15,"x1":37,"y1":0,"x2":57,"y2":15,"feeding":"w"}]
+D, [2016-09-18T18:07:19.313017 #1964] DEBUG -- : initial.facilities: [{"id":"f2","width":9,"height":5,"x1":0,"y1":0,"x2":9,"y2":5,"feeding":"nil"},{"id":"f1","width":18,"height":10,"x1":0,"y1":0,"x2":18,"y2":10,"feeding":"nil"},{"id":"f3","width":10,"height":10,"x1":0,"y1":0,"x2":10,"y2":10,"feeding":"nil"},{"id":"f4","width":20,"height":15,"x1":0,"y1":0,"x2":20,"y2":15,"feeding":"nil"}]
+D, [2016-09-18T18:07:19.313066 #1964] DEBUG -- : initial.silicing_order: [2, 0, 1]
+D, [2016-09-18T18:07:19.313116 #1964] DEBUG -- : initial.orientation: [1, 0, 0]
+D, [2016-09-18T18:07:19.313306 #1964] DEBUG -- : best.material_flow.facility_map: [{"id":"f3","width":10,"height":10,"x1":0,"y1":0,"x2":10,"y2":10,"feeding":"e"},{"id":"f4","width":20,"height":15,"x1":10,"y1":15,"x2":30,"y2":30,"feeding":"n"},{"id":"f2","width":9,"height":5,"x1":10,"y1":10,"x2":19,"y2":15,"feeding":"e"},{"id":"f1","width":18,"height":10,"x1":10,"y1":0,"x2":28,"y2":10,"feeding":"w"}]
+D, [2016-09-18T18:07:19.313499 #1964] DEBUG -- : best.facilities: [{"id":"f3","width":10,"height":10,"x1":0,"y1":0,"x2":10,"y2":10,"feeding":"nil"},{"id":"f4","width":20,"height":15,"x1":0,"y1":0,"x2":20,"y2":15,"feeding":"nil"},{"id":"f2","width":9,"height":5,"x1":0,"y1":0,"x2":9,"y2":5,"feeding":"nil"},{"id":"f1","width":18,"height":10,"x1":0,"y1":0,"x2":18,"y2":10,"feeding":"nil"}]
+D, [2016-09-18T18:07:19.313540 #1964] DEBUG -- : best.silicing_order: [0, 1, 2]
+D, [2016-09-18T18:07:19.313577 #1964] DEBUG -- : best.orientation: [1, 0, 0]
+D, [2016-09-18T18:07:19.313611 #1964] DEBUG -- : vns.iter: 11
+D, [2016-09-18T18:07:19.313653 #1964] DEBUG -- : vns.best_iter: 3
+D, [2016-09-18T18:07:19.313707 #1964] DEBUG -- : initial.material_flow.costs: 3089.4777123969343
+D, [2016-09-18T18:07:19.313747 #1964] DEBUG -- : initial.material_flow.distance: 164.91610116872215
+D, [2016-09-18T18:07:19.313784 #1964] DEBUG -- : best.material_flow.costs: 1033.1665510863984
+D, [2016-09-18T18:07:19.313822 #1964] DEBUG -- : best.material_flow.distance: 73.16227766016837
+D, [2016-09-18T18:07:19.313876 #1964] DEBUG -- : duration: 22.167233
+I, [2016-09-18T18:07:19.313968 #1964]  INFO -- : {"dataset":"skas_4t","duration":22.167233,"neighbours":"1..5","max_duration":20,"max_duration_ls":2,"iterations":"11","best_iteration":"3","initial_costs":3089.4777123969343,"initial_distance":164.91610116872215,"best_costs":1033.1665510863984,"best_distance":73.16227766016837}
+D, [2016-09-18T18:07:19.314007 #1964] DEBUG -- : Stop  skas_4t ****************************
+D, [2016-09-18T18:07:44.930745 #1965] DEBUG -- : Start skas_4t ****************************
+D, [2016-09-18T18:07:44.930936 #1965] DEBUG -- : facilities: [#<Facility:0x007fde33c226f8 @id=:f1, @width=18, @height=10, @x1=0, @y1=0, @x2=18, @y2=10, @feeding=:nil>, #<Facility:0x007fde33c226d0 @id=:f2, @width=9, @height=5, @x1=0, @y1=0, @x2=9, @y2=5, @feeding=:nil>, #<Facility:0x007fde33c226a8 @id=:f3, @width=10, @height=10, @x1=0, @y1=0, @x2=10, @y2=10, @feeding=:nil>, #<Facility:0x007fde33c22680 @id=:f4, @width=20, @height=15, @x1=0, @y1=0, @x2=20, @y2=15, @feeding=:nil>]
+D, [2016-09-18T18:07:44.931000 #1965] DEBUG -- : material_flow: [[:f1, :f2, 20], [:f1, :f3, 30], [:f1, :f4, 15], [:f2, :f3, 5], [:f2, :f4, 38], [:f3, :f4, 12]]
+D, [2016-09-18T18:07:44.931043 #1965] DEBUG -- : neighbours: 1..5
+D, [2016-09-18T18:07:44.931077 #1965] DEBUG -- : max_duration: 20
+D, [2016-09-18T18:07:44.931126 #1965] DEBUG -- : max_duration_ls: 1.5
+D, [2016-09-18T18:08:06.137553 #1965] DEBUG -- : initial.material_flow.facility_map: [{"id":"f3","width":10,"height":10,"x1":0,"y1":15,"x2":10,"y2":25,"feeding":"n"},{"id":"f4","width":20,"height":15,"x1":10,"y1":15,"x2":30,"y2":30,"feeding":"n"},{"id":"f1","width":18,"height":10,"x1":0,"y1":5,"x2":18,"y2":15,"feeding":"s"},{"id":"f2","width":9,"height":5,"x1":0,"y1":0,"x2":9,"y2":5,"feeding":"e"}]
+D, [2016-09-18T18:08:06.137817 #1965] DEBUG -- : initial.facilities: [{"id":"f3","width":10,"height":10,"x1":0,"y1":0,"x2":10,"y2":10,"feeding":"nil"},{"id":"f4","width":20,"height":15,"x1":0,"y1":0,"x2":20,"y2":15,"feeding":"nil"},{"id":"f1","width":18,"height":10,"x1":0,"y1":0,"x2":18,"y2":10,"feeding":"nil"},{"id":"f2","width":9,"height":5,"x1":0,"y1":0,"x2":9,"y2":5,"feeding":"nil"}]
+D, [2016-09-18T18:08:06.137924 #1965] DEBUG -- : initial.silicing_order: [1, 0, 2]
+D, [2016-09-18T18:08:06.137965 #1965] DEBUG -- : initial.orientation: [0, 1, 0]
+D, [2016-09-18T18:08:06.138168 #1965] DEBUG -- : best.material_flow.facility_map: [{"id":"f3","width":10,"height":10,"x1":0,"y1":15,"x2":10,"y2":25,"feeding":"e"},{"id":"f2","width":9,"height":5,"x1":10,"y1":25,"x2":19,"y2":30,"feeding":"w"},{"id":"f1","width":18,"height":10,"x1":10,"y1":15,"x2":28,"y2":25,"feeding":"w"},{"id":"f4","width":20,"height":15,"x1":0,"y1":0,"x2":20,"y2":15,"feeding":"s"}]
+D, [2016-09-18T18:08:06.138366 #1965] DEBUG -- : best.facilities: [{"id":"f3","width":10,"height":10,"x1":0,"y1":0,"x2":10,"y2":10,"feeding":"nil"},{"id":"f2","width":9,"height":5,"x1":0,"y1":0,"x2":9,"y2":5,"feeding":"nil"},{"id":"f1","width":18,"height":10,"x1":0,"y1":0,"x2":18,"y2":10,"feeding":"nil"},{"id":"f4","width":20,"height":15,"x1":0,"y1":0,"x2":20,"y2":15,"feeding":"nil"}]
+D, [2016-09-18T18:08:06.138407 #1965] DEBUG -- : best.silicing_order: [2, 0, 1]
+D, [2016-09-18T18:08:06.138444 #1965] DEBUG -- : best.orientation: [0, 1, 0]
+D, [2016-09-18T18:08:06.138478 #1965] DEBUG -- : vns.iter: 14
+D, [2016-09-18T18:08:06.138512 #1965] DEBUG -- : vns.best_iter: 3
+D, [2016-09-18T18:08:06.138553 #1965] DEBUG -- : initial.material_flow.costs: 2110.636262671111
+D, [2016-09-18T18:08:06.138591 #1965] DEBUG -- : initial.material_flow.distance: 118.3851648071345
+D, [2016-09-18T18:08:06.138626 #1965] DEBUG -- : best.material_flow.costs: 766.0
+D, [2016-09-18T18:08:06.138661 #1965] DEBUG -- : best.material_flow.distance: 36.0
+D, [2016-09-18T18:08:06.138699 #1965] DEBUG -- : duration: 21.206165
+I, [2016-09-18T18:08:06.138807 #1965]  INFO -- : {"dataset":"skas_4t","duration":21.206165,"neighbours":"1..5","max_duration":20,"max_duration_ls":1.5,"iterations":"14","best_iteration":"3","initial_costs":2110.636262671111,"initial_distance":118.3851648071345,"best_costs":766.0,"best_distance":36.0}
+D, [2016-09-18T18:08:06.138846 #1965] DEBUG -- : Stop  skas_4t ****************************
