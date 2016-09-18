@@ -26,7 +26,7 @@ describe TimedVariableNeighborhoodSearch do
     vns = TimedVariableNeighborhoodSearch.new(@facilities, material_flow)
     expect(vns.class).to eq(TimedVariableNeighborhoodSearch)
 
-    best = vns.search(1..5,0.1,0.1)
+    best = vns.search(1..5,2,0.1)
     expect(best.class).to eq(Layout)
 
     initial = vns.initial_layout
